@@ -1,9 +1,11 @@
-import './App.scss'
+import style from './App.module.scss'
 
 export const App = () => {
     return (
-        <div>
-            123
+        <div className={style.wrap}>
+            <div className='app'>
+                123
+            </div>
         </div>
     )
 }
