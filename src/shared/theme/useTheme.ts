@@ -5,6 +5,7 @@ type UseThemeResult = {
     theme: Theme,
     toggleTheme: () => void
 }
+
 export const useTheme = (): UseThemeResult => {
     const {theme, setTheme} = useContext(ThemContext)
 
