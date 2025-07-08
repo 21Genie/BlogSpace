@@ -27,8 +27,24 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
             "sass-loader",
         ],
     }
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      }
     
     return [
+        svgLoader,
+        fileLoader,
         typeScriptLoader,
         cssLoader
     ]

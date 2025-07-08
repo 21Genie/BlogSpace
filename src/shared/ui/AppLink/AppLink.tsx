@@ -5,7 +5,7 @@ import { classNames} from 'shared/lib/classNames'
 
 import cls from './AppLink.module.scss'
 
-export const enum AppLinkTheme {
+const enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary'
 }
