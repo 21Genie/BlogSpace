@@ -7,7 +7,7 @@ const AboutPage = () => {
         <div>
             {t('О нас')}
         </div>
-    )
-}
+    );
+};
 
-export default AboutPage
+export default AboutPage;
