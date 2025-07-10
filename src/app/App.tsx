@@ -1,7 +1,7 @@
 import { Navbar } from 'widgets/Navbar/Navbar';
 
 import { useTheme } from 'shared/theme/useTheme';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 import './styles/index.scss';
 import { Sidebar } from 'widgets/Sidebar';
