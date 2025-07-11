@@ -1,0 +1,15 @@
+.pageError {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    width: 100%;
+}
+
+.buttonReload {
+    border: 2px solid dodgerblue;
+    border-radius: 8px;
+    padding: 10px;
+}

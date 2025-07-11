@@ -2,5 +2,7 @@
     "Добро пожаловать": "Welcome",
     "Перевод": "Translate",
     "О нас": "About",
-    "Главная": "Main"
+    "Главная": "Main",
+    "Упс. произошла непредвиденная ошибка!": "Oops. an unexpected error has occurred!",
+    "Обновить страницу": "Refresh page"
 }
