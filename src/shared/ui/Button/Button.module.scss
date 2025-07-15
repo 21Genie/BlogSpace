@@ -17,3 +17,10 @@
     padding: 0;
     margin: 0;
 }
+
+.outline {
+    padding: 10px 15px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background: none;
+}
