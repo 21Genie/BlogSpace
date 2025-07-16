@@ -43,7 +43,7 @@
 }
 
 .icon {
-    fill: var(--inverted-primary-color)
+    fill: var(--inverted-primary-color);
 }
 
 .collapsed {
@@ -56,7 +56,7 @@
 
     .link {
         opacity: 0;
-        transition:  .2s opacity;
+        transition: 0.2s opacity;
         width: 0;
     }
 }
