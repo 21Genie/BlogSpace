@@ -16,6 +16,9 @@
     "test:ui": "npx loki test",
     "test:ui:update": "npx loki approve",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
+    "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "start-storybook -p 6009 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook"
   },
@@ -70,6 +73,7 @@
     "jest": "^27.5.1",
     "loki": "^0.28.1",
     "mini-css-extract-plugin": "^2.5.3",
+    "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.13.11",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
@@ -94,7 +98,6 @@
     "react-router-dom": "^6.2.1"
   },
   "loki": {
-    
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
