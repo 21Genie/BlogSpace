@@ -9,6 +9,8 @@ type UseThemeResult = {
 export const useTheme = (): UseThemeResult => {
     const { theme, setTheme } = useContext(ThemContext);
 
+    document.body.className = theme;
+
     const toggleTheme = () => {
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
         setTheme(newTheme);
