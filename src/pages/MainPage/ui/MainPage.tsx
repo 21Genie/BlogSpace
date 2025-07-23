@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-
 import cls from './MainPage.module.scss';
 
 const MainPage = () => {

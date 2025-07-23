@@ -1,12 +1,10 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { counterActions, counterReducer, counterSlice } from './counterSlice';
+import { counterActions, counterReducer } from './counterSlice';
 import { CounterSchema } from '../types/counterSchema';
 
 describe('counterSlice', () => {
     const state: CounterSchema = {
         value: 10,
     };
-
     test('increment', () => {
         expect(
             counterReducer(state, counterActions.increment),
@@ -17,7 +15,7 @@ describe('counterSlice', () => {
             counterReducer(state, counterActions.decrement),
         ).toEqual({ value: 9 });
     });
-    test('with empty state', () => {
+    test('should work with empty state', () => {
         expect(
             counterReducer(undefined, counterActions.increment),
         ).toEqual({ value: 1 });
