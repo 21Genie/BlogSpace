@@ -5,5 +5,10 @@
     "Главная": "Main",
     "Упс. произошла непредвиденная ошибка!": "Oops. an unexpected error has occurred!",
     "Обновить страницу": "Refresh page",
-    "Войти": "Login"
+    "Войти": "Login",
+    "Введите логин": "Enter login",
+    "Введите пароль": "Enter password",
+    "Вы ввели неверный логин или пароль.": "You entered an incorrect username or password.",
+    "Форма авторизации": "Authorization form",
+    "Выйти": "Exit"
 }
