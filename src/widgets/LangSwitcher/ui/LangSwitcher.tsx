@@ -4,12 +4,13 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 import LangIcon from 'shared/assets/icons/language-icon.svg';
+import { memo } from 'react';
 
 interface LangSwitcherProps {
    className?: string
 }
 
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
     const { t, i18n } = useTranslation();
 
     const toggleLang = () => {
@@ -25,4 +26,4 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
             <LangIcon />
         </Button>
     );
-};
+});

@@ -1,5 +1,5 @@
 import { Reducer } from '@reduxjs/toolkit';
-import { ReducerWithManager } from 'app/providers/StoreProvider';
+import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
 import { StateSchemaKey } from 'app/providers/StoreProvider/config/stateSchema';
 import { ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
@@ -8,7 +8,7 @@ export type ReducersList = {
     [name in StateSchemaKey]?: Reducer
 }
 
-type ReducerListEntry = [StateSchemaKey, Reducer]
+type ReducersListEntry = [StateSchemaKey, Reducer]
 
 interface DynamicModuleLoaderProps {
     children?: ReactNode,
@@ -20,9 +20,9 @@ interface DynamicModuleLoaderProps {
 export const DynamicModuleLoader = ({
     children, name, reducers, removeAfterUnmount,
 }: DynamicModuleLoaderProps) => {
-    const store = useStore() as ReducerWithManager;
+    const store = useStore() as ReduxStoreWithManager;
     useEffect(() => {
-        Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
+        Object.entries(reducers).forEach(([name, reducer]: ReducersListEntry) => {
             store.reducerManager.add(name, reducer);
         });
 

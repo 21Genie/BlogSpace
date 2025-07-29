@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { 
+    "first": "Daniel",
+    "lastname": "Mur",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Almet",
+    "username": "admin",
+    "avatar": "https://st4.styapokupayu.ru/images/blog_posts/covers/000/138/839_large.jpg?1444660115"
+   }
 }
