@@ -35,7 +35,7 @@ export interface ThunkExtraArg {
     navigate?: NavigateFunction,
 }
 
-export interface ThunkConfig {
-    rejectValue: string,
+export interface ThunkConfig<T> {
+    rejectValue: T,
     extra: ThunkExtraArg
 }
