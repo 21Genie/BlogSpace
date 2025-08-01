@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
+    ChangeEvent, InputHTMLAttributes, memo, MutableRefObject, useEffect, useRef, useState,
 } from 'react';
 import cls from './Input.module.scss';
 
@@ -25,7 +25,7 @@ export const Input = memo((props: InputProps) => {
         ...otherProps
     } = props;
 
-    const inputRef = useRef(null);
+    const inputRef = useRef(null) as MutableRefObject<HTMLInputElement | null>;
     const [caretPosition, setCaretPosition] = useState(0);
     const [isFocused, setIsFocused] = useState(false);
 
