@@ -3,6 +3,7 @@
     "Перевод": "Translate",
     "О нас": "About",
     "Главная": "Main",
+    "Страница не найдена": "Page not found",
     "Упс. произошла непредвиденная ошибка!": "Oops. an unexpected error has occurred!",
     "Обновить страницу": "Refresh page",
     "Войти": "Login",
@@ -10,5 +11,6 @@
     "Введите пароль": "Enter password",
     "Вы ввели неверный логин или пароль.": "You entered an incorrect username or password.",
     "Форма авторизации": "Authorization form",
-    "Выйти": "Exit"
+    "Выйти": "Exit",
+    "Профиль": "Profile"
 }
