@@ -5,10 +5,14 @@ import { useSelector } from 'react-redux';
 
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ProfileCard } from '../../../entities/Profile/ui/ProfileCard/ProfileCard';
 import {
     fetchProfileData, getProfileReadonly,
     getProfileError, getProfileForm, getProfileIsLoading, profileAction, profileReducer,
+    getProfileValidateErrors,
+    ValidateProfileErrors,
 } from '../../../entities/Profile';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -17,11 +21,21 @@ const reducers: ReducersList = {
 };
 
 const ProfilePage = () => {
+    const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorTranslates = {
+        [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Некорректный регион'),
+        [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileErrors.INCORRECT_AGE]: t('Некорректный возраст'),
+    };
 
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -66,6 +80,13 @@ const ProfilePage = () => {
             removeAfterUnmount
         >
             <ProfilePageHeader />
+            {validateErrors && validateErrors?.map((err) => (
+                <Text
+                    key={err}
+                    text={validateErrorTranslates[err]}
+                    theme={TextTheme.ERROR}
+                />
+            ))}
             <div>
                 <ProfileCard
                     data={formData}
