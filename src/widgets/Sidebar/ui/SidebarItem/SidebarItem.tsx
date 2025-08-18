@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { SidebarItemType } from 'widgets/Sidebar/model/items';
+import { SidebarItemType } from 'widgets/Sidebar/model/types/sidebar';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 
