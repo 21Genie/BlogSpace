@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -7,6 +7,8 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfileCard } from '../../../entities/Profile/ui/ProfileCard/ProfileCard';
 import {
     fetchProfileData, getProfileReadonly,
@@ -22,6 +24,7 @@ const reducers: ReducersList = {
 
 const ProfilePage = () => {
     const { t } = useTranslation('profile');
+    const { id } = useParams<{id: string}>();
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
@@ -37,11 +40,9 @@ const ProfilePage = () => {
         [ValidateProfileErrors.INCORRECT_AGE]: t('Некорректный возраст'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchProfileData(id));
+    });
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileAction.updateProfile({ first: value }));

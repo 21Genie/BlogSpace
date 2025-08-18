@@ -95,39 +95,71 @@
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     },
     {
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "ikrT8-r"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Test",
+      "id": "3WtWgyo"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Test_2",
+      "id": "2rAAX5Y"
     }
   ],
   "users": [
     {
-        "id": "1",
-        "avatar": "https://images.techinsider.ru/upload/img_cache/aac/aacbbe0ebbeb260080c7e4706e13fc2b_cropped_320x320.webp",
-        "username": "admin",
-        "password": "123",
-        "role": "ADMIN"
+      "id": "1",
+      "avatar": "https://images.techinsider.ru/upload/img_cache/aac/aacbbe0ebbeb260080c7e4706e13fc2b_cropped_320x320.webp",
+      "username": "admin",
+      "password": "123",
+      "role": "ADMIN"
     },
     {
-        "id": "2",
-        "avatar": "https://i.pinimg.com/originals/b1/cc/99/b1cc9987043f82eda1963ab8ba5d03c5.jpg",
-        "username": "user",
-        "password": "123",
-        "role": "USER"
+      "id": "2",
+      "avatar": "https://i.pinimg.com/originals/b1/cc/99/b1cc9987043f82eda1963ab8ba5d03c5.jpg",
+      "username": "user",
+      "password": "123",
+      "role": "USER"
     }
   ],
-  "profile": {
-    "first": "Dan",
-    "lastname": "Mur",
-    "age": 22,
-    "city": "Almet",
-    "username": "admin",
-    "avatar": "https://www.castcom.ru/netcat_files/115/159/apple.jpg",
-    "currency": "EUR",
-    "country": "Armenia"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Dan",
+      "lastname": "Mur",
+      "age": 22,
+      "city": "Almet",
+      "username": "admin",
+      "avatar": "https://images.techinsider.ru/upload/img_cache/aac/aacbbe0ebbeb260080c7e4706e13fc2b_cropped_320x320.webp",
+      "currency": "EUR",
+      "country": "Armenia"
+    },
+    {
+      "id": "2",
+      "first": "User",
+      "lastname": "Res",
+      "age": 52,
+      "city": "Moscow",
+      "username": "user",
+      "avatar": "https://i.pinimg.com/originals/b1/cc/99/b1cc9987043f82eda1963ab8ba5d03c5.jpg",
+      "currency": "EUR",
+      "country": "Russia"
+    }
+  ]
 }
