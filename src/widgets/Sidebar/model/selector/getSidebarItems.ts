@@ -7,7 +7,6 @@ import ArticleIcon from 'shared/assets/icons/article.svg';
 import { routePath } from 'shared/config/routeConfig/routeConfig';
 import { SidebarItemType } from '../types/sidebar';
 
-
 export const getSidebarItems = createSelector(
     getUserAuthData,
     (userData) => {
@@ -22,7 +21,7 @@ export const getSidebarItems = createSelector(
                 text: 'О нас',
                 Icon: AboutIcon,
             },
-        ]
+        ];
 
         if (userData) {
             sidebarItemsList.push(
@@ -38,9 +37,9 @@ export const getSidebarItems = createSelector(
                     Icon: ArticleIcon,
                     authOnly: true,
                 },
-            )
+            );
         }
 
-        return sidebarItemsList
-    }
-)
+        return sidebarItemsList;
+    },
+);

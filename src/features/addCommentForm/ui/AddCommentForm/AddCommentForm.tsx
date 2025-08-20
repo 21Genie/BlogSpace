@@ -7,12 +7,12 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useCallback } from 'react';
 import { addCommentFormActions, addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useTranslation } from 'react-i18next';
 import {
     getAddCommentFormText, getAddCommentFormError,
 } from '../../model/selectors/AddCommentFormSelectors';
 
 import cls from './AddCommentForm.module.scss';
-import { useTranslation } from 'react-i18next';
 
 interface AddCommentFormProps {
     onSendComment: (text: string) => void
@@ -24,7 +24,7 @@ const reducers: ReducersList = {
 };
 
 const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
-    const {t} = useTranslation('article')
+    const { t } = useTranslation('article');
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
@@ -43,7 +43,7 @@ const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
             <div className={classNames(cls.addCommentForm, [className])}>
                 <Input
                     className={cls.input}
-                    placeholder={t("Введите текст комментария")}
+                    placeholder={t('Введите текст комментария')}
                     value={text}
                     onChange={onCommentTextChange}
                 />

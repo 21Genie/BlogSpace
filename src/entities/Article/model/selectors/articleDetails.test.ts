@@ -9,10 +9,10 @@ describe('articleDetails', () => {
     test('should return articleData', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
-                data: { id: 1 },
+                data: { id: '1' },
             },
         };
-        expect(getArticleDetailsData(state as StateSchema)).toEqual({ id: 1 });
+        expect(getArticleDetailsData(state as StateSchema)).toEqual({ id: '1' });
     });
 
     test('should work with empty state', () => {

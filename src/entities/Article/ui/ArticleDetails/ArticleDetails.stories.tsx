@@ -1,21 +1,26 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleDetails } from './ArticleDetails';
-import { Article, ArticleBlockType, ArticleType } from '../../../../entities/Article/model/types/article';
+ import { ComponentMeta, ComponentStory } from '@storybook/react';
+ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+ import { ArticleDetails } from './ArticleDetails';
+ import { Article, ArticleBlockType, ArticleType } from '../../../../entities/Article/model/types/article';
 
-export default {
+ export default {
     title: 'entities/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleDetails>;
+ } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+ const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
 
-const article: Article = {
-    id: 1,
+ const article: Article = {
+    id: '1',
     title: 'Javascript news',
+    user: {
+        id: '1',
+        username: 'Test',
+        avatar: 'https://i.pinimg.com/originals/b1/cc/99/b1cc9987043f82eda1963ab8ba5d03c5.jpg'
+    },
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
@@ -81,28 +86,28 @@ const article: Article = {
             ],
         },
     ],
-};
+ };
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [StoreDecorator({
+ export const Normal = Template.bind({});
+ Normal.args = {};
+ Normal.decorators = [StoreDecorator({
     articleDetails: {
         data: article,
     },
-})];
+ })];
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [StoreDecorator({
+ export const Loading = Template.bind({});
+ Loading.args = {};
+ Loading.decorators = [StoreDecorator({
     articleDetails: {
         isLoading: true,
     },
-})];
+ })];
 
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [StoreDecorator({
+ export const Error = Template.bind({});
+ Error.args = {};
+ Error.decorators = [StoreDecorator({
     articleDetails: {
         error: 'error',
     },
-})];
+ })];
