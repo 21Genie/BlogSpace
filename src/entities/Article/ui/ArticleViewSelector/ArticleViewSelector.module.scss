@@ -1,0 +1,11 @@
+.articleViewSelector {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 20px;
+}
+
+.selected {
+    fill: var(--secondary-color);
+}

@@ -5,9 +5,8 @@ import { $api } from 'shared/api/api';
 import { NavigateFunction } from 'react-router-dom';
 import { counterReducer } from '../../../../entities/Counter';
 import { userReducer } from '../../../../entities/User';
-
-import { StateSchema } from './stateSchema';
 import { createReducerManager } from './reducerManager';
+import { StateSchema } from './stateSchema';
 
 export function createReduxStore(
     initialState?: StateSchema,

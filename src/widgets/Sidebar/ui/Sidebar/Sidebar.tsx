@@ -23,7 +23,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const onToggle = () => setCollapsed((prev) => !prev);
 
     return (
-        <div
+        <menu
             data-testid="sidebar"
             className={classNames(cls.sidebar, [className], {
                 [cls.collapsed]: collapsed,
@@ -42,21 +42,23 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 {collapsed ? '>' : '<'}
             </Button>
 
-            <ul className={cls.items}>
-                { sidebarItemsList.map((item) => (
-                    <li key={item.path}>
-                        <SidebarItem
-                            item={item}
-                            collapsed={collapsed}
-                        />
-                    </li>
-                ))}
-            </ul>
+            <nav>
+                <ul className={cls.items}>
+                    { sidebarItemsList.map((item) => (
+                        <li key={item.path}>
+                            <SidebarItem
+                                item={item}
+                                collapsed={collapsed}
+                            />
+                        </li>
+                    ))}
+                </ul>
+            </nav>
 
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher />
             </div>
-        </div>
+        </menu>
     );
 });

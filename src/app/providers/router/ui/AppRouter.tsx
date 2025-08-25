@@ -1,10 +1,8 @@
-import { Suspense, useCallback, useMemo } from 'react';
+import { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { PageLoader } from 'widgets/PageLoader';
 import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
-import { getUserAuthData } from 'entities/User';
-import { useSelector } from 'react-redux';
 import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = () => {
@@ -14,12 +12,10 @@ export const AppRouter = () => {
             path={path}
             element={authOnly
                 ? (
-                    <div className="page-wrapper">
-                        <RequireAuth>{element}</RequireAuth>
-                    </div>
+                    <RequireAuth>{element}</RequireAuth>
                 )
                 : (
-                    <div className="page-wrapper">
+                    <div>
                         {element}
                     </div>
                 )}

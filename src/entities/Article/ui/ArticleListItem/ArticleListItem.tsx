@@ -11,6 +11,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { routePath } from 'shared/config/routeConfig/routeConfig';
+import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
@@ -25,6 +26,7 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = ({ className, article, view }: ArticleListItemProps) => {
+    const { t } = useTranslation('articles');
     const navigate = useNavigate();
     const onOpenArticle = useCallback(() => {
         navigate(routePath.article_details + article.id);
@@ -32,7 +34,7 @@ export const ArticleListItem = ({ className, article, view }: ArticleListItemPro
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
-        <div className={cls.infoWrapper}>
+        <div className={cls.viewWrapper}>
             <Text text={String(article.views)} className={cls.views} />
             <Icon Svg={ViewsIcon} />
         </div>
@@ -56,7 +58,7 @@ export const ArticleListItem = ({ className, article, view }: ArticleListItemPro
                     <img src={article.img} className={cls.img} alt={article.title} />
                     <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     <div className={cls.footer}>
-                        <Button onClick={onOpenArticle}>Читать далее...</Button>
+                        <Button onClick={onOpenArticle}>{t('Читать далее...')}</Button>
                         {views}
                     </div>
                 </Card>
