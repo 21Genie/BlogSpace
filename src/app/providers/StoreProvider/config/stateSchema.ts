@@ -8,13 +8,14 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
+import { scrollSaveSchema } from 'features/ScrollSave/model/types/scrollSaveSchema';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPageSchema';
-import { NavigateFunction } from 'react-router-dom';
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
+    scrollSave: scrollSaveSchema,
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema,
