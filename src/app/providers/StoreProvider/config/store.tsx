@@ -11,7 +11,6 @@ import { StateSchema } from './stateSchema';
 export function createReduxStore(
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: NavigateFunction,
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
@@ -29,7 +28,6 @@ export function createReduxStore(
             thunk: {
                 extraArgument: {
                     api: $api,
-                    navigate,
                 },
             },
         })),
