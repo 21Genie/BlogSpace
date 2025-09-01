@@ -12,5 +12,6 @@
     "Вы ввели неверный логин или пароль.": "You entered an incorrect username or password.",
     "Форма авторизации": "Authorization form",
     "Выйти": "Exit",
-    "Профиль": "Profile"
+    "Профиль": "Profile",
+    "Статьи":"Articles"
 }

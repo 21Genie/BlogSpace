@@ -1,3 +1,5 @@
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import {
     MutableRefObject, ReactNode, useRef, UIEvent,
 } from 'react';
@@ -6,11 +8,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { getScrollByPath, scrollSaveActions } from 'features/ScrollSave';
-import { useLocation } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+
 import cls from './Page.module.scss';
 
 interface PageProps {
@@ -37,14 +38,12 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        console.log('scroll');
-
         const scroll = {
             path: pathname,
             position: e.currentTarget.scrollTop,
         };
         dispatch(scrollSaveActions.setScrollPosition(scroll));
-    }, 500);
+    }, 200);
 
     return (
         <div
@@ -53,7 +52,9 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
             onScroll={onScroll}
         >
             {children}
-            <div ref={targetRef} />
+            {onScrollEnd
+                ? <div className={cls.target} ref={targetRef} />
+                : null}
         </div>
     );
 };
