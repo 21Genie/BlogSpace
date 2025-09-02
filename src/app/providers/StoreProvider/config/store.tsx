@@ -1,9 +1,9 @@
 import {
-    CombinedState, configureStore, getDefaultMiddleware, Reducer, ReducersMapObject,
+    CombinedState, configureStore,
+    Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { $api } from 'shared/api/api';
-import { NavigateFunction } from 'react-router-dom';
 import { scrollSaveReducer } from 'features/ScrollSave/model/slice/scrollSaveSlice';
+import { $api } from 'shared/api/api';
 import { counterReducer } from '../../../../entities/Counter';
 import { userReducer } from '../../../../entities/User';
 import { createReducerManager } from './reducerManager';
