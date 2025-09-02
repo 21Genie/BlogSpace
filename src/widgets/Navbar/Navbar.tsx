@@ -7,6 +7,9 @@ import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
+import { routePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { TextTheme, Text } from 'shared/ui/Text/Text';
 import { getUserAuthData, userActions } from '../../entities/User';
 import cls from './Navbar.module.scss';
 
@@ -35,6 +38,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar, [className])}>
+                <Text className={cls.appName} title={t('App')} theme={TextTheme.INVERTED} />
+                <AppLink
+                    to={routePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createLink}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     className={cls.links}
                     theme={ButtonTheme.CLEAR_INVERTED}
