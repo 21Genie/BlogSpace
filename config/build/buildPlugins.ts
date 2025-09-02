@@ -4,6 +4,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
+import CopyPlugin from 'copy-webpack-plugin';
 
 export function buildPlugins({
     paths, isDev, apiUrl, project,
@@ -22,6 +23,11 @@ export function buildPlugins({
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
         }),
+        new CopyPlugin({
+            patterns: [
+              { from: paths.locales, to: paths.buildLocales },
+            ],
+          }),
     ];
 
     if (isDev) {
