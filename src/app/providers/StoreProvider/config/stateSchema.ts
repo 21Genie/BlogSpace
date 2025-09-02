@@ -11,11 +11,9 @@ import {
 import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPageSchema';
 import { UserSchema } from '../../../../entities/User';
 import { ProfileSchema } from '../../../../entities/Profile';
-import { CounterSchema } from '../../../../entities/Counter';
 import { ArticleDetailsSchema } from '../../../../entities/Article';
 
 export interface StateSchema {
-    counter: CounterSchema,
     user: UserSchema,
     scrollSave: scrollSaveSchema,
 
