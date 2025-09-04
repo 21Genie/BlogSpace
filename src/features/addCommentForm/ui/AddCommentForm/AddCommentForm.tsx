@@ -5,9 +5,9 @@ import { Button } from 'shared/ui/Button/Button';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 import { useCallback } from 'react';
-import { addCommentFormActions, addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useTranslation } from 'react-i18next';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import {
     getAddCommentFormText, getAddCommentFormError,
 } from '../../model/selectors/AddCommentFormSelectors';

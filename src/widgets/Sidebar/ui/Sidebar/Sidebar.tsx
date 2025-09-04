@@ -4,7 +4,7 @@ import { memo, useState } from 'react';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher/ThemeSwitcher';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { SidebarItem } from '../SidebarItem/SidebarItem';
