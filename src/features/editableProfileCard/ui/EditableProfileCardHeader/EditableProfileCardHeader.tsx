@@ -11,11 +11,7 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import cls from './EditableProfileCardHeader.module.scss';
 
-interface EditableProfileCardHeaderProps {
-   className?: string
-}
-
-export const EditableProfileCardHeader = ({ className }: EditableProfileCardHeaderProps) => {
+export const EditableProfileCardHeader = () => {
     const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
@@ -45,6 +41,7 @@ export const EditableProfileCardHeader = ({ className }: EditableProfileCardHead
                             className={cls.editBtn}
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
+                            data-testid="EditableProfileCardHeader.EditButton"
                         >
                             {t('Редактировать')}
                         </Button>
@@ -55,6 +52,7 @@ export const EditableProfileCardHeader = ({ className }: EditableProfileCardHead
                                     className={cls.editBtn}
                                     theme={ButtonTheme.OUTLINE_RED}
                                     onClick={onCancelEdit}
+                                    data-testid="EditableProfileCardHeader.CancelButton"
                                 >
                                     {t('Отменить')}
                                 </Button>
@@ -62,6 +60,7 @@ export const EditableProfileCardHeader = ({ className }: EditableProfileCardHead
                                     className={cls.editBtn}
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSave}
+                                    data-testid="EditableProfileCardHeader.SaveButton"
                                 >
                                     {t('Сохранить')}
                                 </Button>

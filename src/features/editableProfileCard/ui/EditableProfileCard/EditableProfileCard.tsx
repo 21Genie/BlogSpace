@@ -15,6 +15,7 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileAction } from '../../model/slice/profileSlice';
 import { ValidateProfileErrors } from '../../model/types/editableProfileCardSchema';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
     id: string
@@ -76,11 +77,13 @@ export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
 
     return (
         <>
+            <EditableProfileCardHeader />
             {validateErrors && validateErrors?.map((err) => (
                 <Text
                     key={err}
                     text={validateErrorTranslates[err]}
                     theme={TextTheme.ERROR}
+                    data-testid="EditableProfileCard.Error"
                 />
             ))}
             <ProfileCard

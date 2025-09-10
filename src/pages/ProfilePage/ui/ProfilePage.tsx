@@ -1,6 +1,6 @@
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-import { EditableProfileCard, EditableProfileCardHeader } from 'features/editableProfileCard';
+import { EditableProfileCard } from 'features/editableProfileCard';
 import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
@@ -25,7 +25,6 @@ const ProfilePage = () => {
             removeAfterUnmount
         >
             <Page>
-                <EditableProfileCardHeader />
                 <EditableProfileCard id={id} />
             </Page>
         </DynamicModuleLoader>
