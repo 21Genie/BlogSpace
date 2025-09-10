@@ -9,13 +9,15 @@ import {
     ArticleDetailsPageSchema,
 } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPageSchema';
+import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/editableProfileCard';
 import { UserSchema } from '../../../../entities/User';
-import { ProfileSchema } from '../../../../entities/Profile';
 import { ArticleDetailsSchema } from '../../../../entities/Article';
 
 export interface StateSchema {
     user: UserSchema,
     scrollSave: scrollSaveSchema,
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema,

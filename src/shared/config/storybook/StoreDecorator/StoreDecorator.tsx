@@ -4,8 +4,8 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { loginReducer } from 'features/AuthByUsername';
 import { addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
+import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 import { articleDetailsReducer } from '../../../../entities/Article/model/slice/articleDetailsSlice';
-import { profileReducer } from '../../../../entities/Profile';
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,

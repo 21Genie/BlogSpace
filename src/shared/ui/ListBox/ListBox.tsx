@@ -3,8 +3,8 @@ import { Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { DropdownDirection } from 'shared/types/ui';
-import { Button } from '../Button/Button';
 import cls from './ListBox.module.scss';
+import { Button } from '../Button/Button';
 
 export interface ListBoxItem {
     value: string,
