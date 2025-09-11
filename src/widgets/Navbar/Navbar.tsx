@@ -12,7 +12,9 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { getUserAuthData, userActions } from '../../entities/User';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from '../../entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -23,6 +25,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
     const dispatch = useDispatch();
 
     const onCloseModal = useCallback(() => {
@@ -36,6 +40,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
     }, [dispatch]);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     if (authData) {
         return (
@@ -53,6 +59,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     className={cls.dropdown}
                     trigger={<Avatar size={30} src={authData.avatar} />}
                     items={[
+                        ...(isAdminPanelAvailable ? [{
+                            content: 'Админка', href: routePath.admin_panel,
+                        }] : []),
                         { content: 'Профиль', href: routePath.profile + authData.id },
                         { content: 'Выйти', onClick: onLogout },
                     ]}

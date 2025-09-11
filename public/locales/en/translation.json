@@ -14,5 +14,6 @@
     "Выйти": "Exit",
     "Профиль": "Profile",
     "Статьи":"Articles",
-    "Создать статью": "Create article"
+    "Создать статью": "Create article",
+    "У вас нет доступа": "You don't have access"
 }

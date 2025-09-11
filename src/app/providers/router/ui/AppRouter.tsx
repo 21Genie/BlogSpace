@@ -6,13 +6,15 @@ import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConf
 import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = () => {
-    const renderWithWrapper = useCallback(({ path, element, authOnly }: AppRoutesProps) => (
+    const renderWithWrapper = useCallback(({
+        path, element, authOnly, roles,
+    }: AppRoutesProps) => (
         <Route
             key={path}
             path={path}
             element={authOnly
                 ? (
-                    <RequireAuth>{element}</RequireAuth>
+                    <RequireAuth roles={roles}>{element}</RequireAuth>
                 )
                 : (
                     <div>
