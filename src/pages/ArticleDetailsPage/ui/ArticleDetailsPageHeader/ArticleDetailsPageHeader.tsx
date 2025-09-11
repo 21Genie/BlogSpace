@@ -2,7 +2,6 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { routePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 
@@ -21,11 +20,11 @@ export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeader
     const article = useSelector(getArticleDetailsData);
 
     const onBackToArticle = useCallback(() => {
-        navigate(routePath.articles);
+        navigate('/articles');
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-        navigate(`${routePath.article_details}${article?.id}/edit`);
+        navigate(`/articles/${article?.id}/edit`);
     }, [navigate, article?.id]);
 
     return (

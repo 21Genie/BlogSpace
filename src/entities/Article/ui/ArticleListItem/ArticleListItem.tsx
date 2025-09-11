@@ -10,7 +10,6 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
 
-import { routePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import {
@@ -58,7 +57,7 @@ export const ArticleListItem = ({
                     <img src={article.img} className={cls.img} alt={article.title} />
                     <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     <div className={cls.footer}>
-                        <AppLink target={target} to={routePath.article_details + article.id}>
+                        <AppLink target={target} to={'/articles/' + article.id}>
                             <Button>{t('Читать далее...')}</Button>
                         </AppLink>
                         {views}
@@ -70,7 +69,7 @@ export const ArticleListItem = ({
 
     return (
         <div className={classNames(cls.articleListItem, [className, cls[view]])}>
-            <AppLink target={target} to={routePath.article_details + article.id}>
+            <AppLink target={target} to={'/articles/' + article.id}>
                 <Card>
                     <div className={cls.imageWrapper}>
                         <img src={article.img} className={cls.img} alt={article.title} />
