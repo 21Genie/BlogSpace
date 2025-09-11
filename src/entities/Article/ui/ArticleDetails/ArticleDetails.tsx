@@ -12,7 +12,8 @@ import DateIcon from 'shared/assets/icons/date.svg';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 
-import { ArticleBlock, ArticleBlockType } from '../../../../entities/Article/model/types/article';
+import { ArticleBlockType } from '../../model/consts/consts';
+import { ArticleBlock } from '../../../../entities/Article/model/types/article';
 import { articleDetailsReducer } from '../../../../entities/Article/model/slice/articleDetailsSlice';
 import {
     getArticleDetailsIsLoading, getArticleDetailsError, getArticleDetailsData,
