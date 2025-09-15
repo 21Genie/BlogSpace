@@ -3,8 +3,10 @@ import { Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { DropdownDirection } from 'shared/types/ui';
+import { Button } from '../../../Button/Button';
+import { mapDirectionClass } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
-import { Button } from '../Button/Button';
 
 export interface ListBoxItem {
     value: string,
@@ -22,13 +24,6 @@ interface ListboxProps {
     direction?: DropdownDirection,
     label?: string
 }
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-};
 
 export const Listbox = ({
     items,
@@ -49,11 +44,11 @@ export const Listbox = ({
             <HListBox
                 as="div"
                 disabled={readonly}
-                className={classNames(cls.listbox, [className], { [cls.readonly]: readonly })}
+                className={classNames(popupCls.popup, [className], { [cls.readonly]: readonly })}
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button className={cls.trigger}>
+                <HListBox.Button className={popupCls.trigger}>
                     <Button>
                         {value ?? defaultValue}
                     </Button>
@@ -70,8 +65,8 @@ export const Listbox = ({
                             {({ active, selected }) => (
                                 <li
                                     className={classNames(cls.item, [], {
-                                        [cls.active]: active,
-                                        [cls.disabled]: item.disabled,
+                                        [popupCls.active]: active,
+                                        [popupCls.disabled]: item.disabled,
                                     })}
                                 >
                                     {selected && '>'}

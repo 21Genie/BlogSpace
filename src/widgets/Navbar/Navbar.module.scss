@@ -7,9 +7,15 @@
     padding: 20px;
 }
 
-.links,
-.dropdown {
+.links {
     margin-left: auto;
+}
+
+.actions {
+    margin-left: auto;
+    display: flex;
+    gap: 16px;
+    align-items: center;
 }
 
 .main_link {

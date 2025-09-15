@@ -5,8 +5,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import type { BuildOptions } from './types/config';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import type { BuildOptions } from './types/config';
 
 export function buildPlugins({
     paths, isDev, apiUrl, project,
@@ -32,17 +32,17 @@ export function buildPlugins({
         }),
         new CircularDependencyPlugin({
             exclude: /node_modules/,
-            failOnError: true
+            failOnError: true,
         }),
         new ForkTsCheckerWebpackPlugin({
             typescript: {
-              diagnosticOptions: {
-                semantic: true,
-                syntactic: true,
-              },
-              mode: 'write-references'
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: 'write-references',
             },
-          })
+        }),
     ];
 
     if (isDev) {
