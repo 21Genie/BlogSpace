@@ -13,6 +13,8 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { NotificationButton } from 'features/notificationButton';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AvatarDropdown } from 'features/avatarDropdown';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationList } from 'entities/Notification';
 import {
     getUserAuthData,
 } from '../../entities/User';
