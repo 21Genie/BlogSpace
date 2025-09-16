@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'shared/lib/theme/ThemeContext';
-import AvatarImg from 'shared/assets/tests/admin.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/lib/theme/ThemeContext';
+import AvatarImg from '@/shared/assets/tests/admin.jpg';
 import ProfilePage from './ProfilePage';
 import { Country } from '../../../entities/Country';
 import { Currency } from '../../../entities/Currency';

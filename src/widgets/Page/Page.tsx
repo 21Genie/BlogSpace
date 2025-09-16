@@ -3,14 +3,14 @@ import { useSelector } from 'react-redux';
 import {
     MutableRefObject, ReactNode, useRef, UIEvent,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { getScrollByPath, scrollSaveActions } from 'features/ScrollSave';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { getScrollByPath, scrollSaveActions } from '@/features/ScrollSave';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 
 import cls from './Page.module.scss';
 

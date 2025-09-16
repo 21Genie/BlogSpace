@@ -1,11 +1,11 @@
-import { CommentList } from 'entities/Comment';
-import { AddCommentForm } from 'features/addCommentForm';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { AddCommentForm } from '@/features/addCommentForm';
+import { CommentList } from '@/entities/Comment';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import {
     getArticleCommentsIsLoading,
 } from '../../model/selectors/comments';

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useModal } from 'shared/lib/hooks/useModal/useModal';
-import { useTheme } from 'shared/lib/theme/useTheme';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+import { useTheme } from '@/shared/lib/theme/useTheme';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Drawer.module.scss';

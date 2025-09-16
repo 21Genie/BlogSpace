@@ -1,7 +1,7 @@
 import { AsyncThunkAction } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
 import axios, { AxiosStatic } from 'axios';
-import { ValidateProfileErrors } from 'features/editableProfileCard';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ValidateProfileErrors } from '@/features/editableProfileCard';
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);

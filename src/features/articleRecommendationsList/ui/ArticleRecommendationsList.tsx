@@ -1,6 +1,6 @@
-import { ArticleList } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { ArticleList } from '@/entities/Article';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { useArticleRecommendations } from '../api/articleRecommendationsApi';
 import cls from './ArticleRecommendationsList.module.scss';
 

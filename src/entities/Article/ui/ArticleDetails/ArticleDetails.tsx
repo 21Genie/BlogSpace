@@ -2,15 +2,15 @@ import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { TextAlign, Text, TextSize } from 'shared/ui/Text/Text';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import ViewsIcon from 'shared/assets/icons/views.svg';
-import DateIcon from 'shared/assets/icons/date.svg';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { TextAlign, Text, TextSize } from '@/shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import ViewsIcon from '@/shared/assets/icons/views.svg';
+import DateIcon from '@/shared/assets/icons/date.svg';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Icon } from '@/shared/ui/Icon/Icon';
 
 import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleBlock } from '../../../../entities/Article/model/types/article';

@@ -1,12 +1,12 @@
-import { routePath } from 'shared/config/routeConfig/routeConfig';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Dropdown } from 'shared/ui/Popups';
-import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entities/User';
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { routePath } from '@/shared/config/routeConfig/routeConfig';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from '@/entities/User';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 export const AvatarDropdown = () => {
     const authData = useSelector(getUserAuthData);
