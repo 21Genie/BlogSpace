@@ -8,9 +8,9 @@ import cls from './Drawer.module.scss';
 
 interface DrawerProps {
     children?: ReactNode,
-    onClose: () => void,
+    onClose?: () => void,
     className?: string,
-    isOpen: boolean,
+    isOpen?: boolean,
     lazy?: boolean
 }
 
