@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { LoginModal } from '@/features/AuthByUsername/ui/LoginModal/LoginModal';
+import { LoginModal } from '@/features/AuthByUsername';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
@@ -17,7 +17,7 @@ import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { NotificationList } from '@/entities/Notification';
 import {
     getUserAuthData,
-} from '../../entities/User';
+} from '../../../entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

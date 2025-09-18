@@ -4,11 +4,11 @@ import {
 import { AxiosInstance } from 'axios';
 import { AddCommentFormSchema } from '@/features/addCommentForm';
 import { LoginSchema } from '@/features/AuthByUsername';
-import { scrollSaveSchema } from '@/features/ScrollSave/model/types/scrollSaveSchema';
+import { scrollSaveSchema } from '@/features/ScrollSave';
 import {
     ArticleDetailsPageSchema,
 } from '@/pages/ArticleDetailsPage';
-import { ArticlesPageSchema } from '@/pages/ArticlesPage/model/types/articlesPageSchema';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ProfileSchema } from '@/features/editableProfileCard';
 import { UserSchema } from '../../../../entities/User';
