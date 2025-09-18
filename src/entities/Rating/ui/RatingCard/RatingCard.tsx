@@ -1,75 +1,80 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { Input } from '@/shared/ui/Input/Input'
-import { Modal } from '@/shared/ui/Modal'
-import { StarRating } from '@/shared/ui/StarRating/StarRating'
-import { Text } from '@/shared/ui/Text/Text'
-import { useCallback, useState } from 'react'
-import cls from './RatingCard.module.scss'
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
-import { Drawer } from '@/shared/ui/Drawer/Drawer'
-import { BrowserView, MobileView } from 'react-device-detect'
+import { useCallback, useState } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Card } from '@/shared/ui/Card/Card';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Input } from '@/shared/ui/Input/Input';
+import { Modal } from '@/shared/ui/Modal';
+import { StarRating } from '@/shared/ui/StarRating/StarRating';
+import { Text } from '@/shared/ui/Text/Text';
+import cls from './RatingCard.module.scss';
 
 interface RatingCardProps {
     className?: string,
     title?: string
     feedbackTitle?: string,
     hasFeedback?: boolean,
+    rating?: number,
     onAccept?: (startsCount: number, feedback?: string) => void,
     onCancel?: (startsCount: number) => void,
 }
 
-export const RatingCard = ({ 
+export const RatingCard = ({
     className,
     title,
     feedbackTitle,
     hasFeedback,
+    rating,
     onAccept,
-    onCancel
+    onCancel,
 }: RatingCardProps) => {
+    const { t } = useTranslation('article');
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rating || 0);
     const [feedback, setFeedback] = useState('');
 
     const onSelectedStarts = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount)
-        
+        setStarsCount(selectedStarsCount);
+
         if (hasFeedback) {
-            setIsModalOpen(true)
+            setIsModalOpen(true);
         } else {
-            onAccept?.(selectedStarsCount)
+            onAccept?.(selectedStarsCount);
         }
-    }, [hasFeedback, onAccept])
+    }, [hasFeedback, onAccept]);
 
     const acceptHandle = useCallback(() => {
-        setIsModalOpen(false)
-        onAccept?.(starsCount, feedback)
-    }, [onAccept, starsCount, feedback])
+        setIsModalOpen(false);
+        onAccept?.(starsCount, feedback);
+    }, [onAccept, starsCount, feedback]);
 
     const cancelHandle = useCallback(() => {
         setIsModalOpen(false);
-        onCancel?.(starsCount)
-    }, [onCancel, starsCount])
+        onCancel?.(starsCount);
+    }, [onCancel, starsCount]);
 
     const modalContent = (
         <div className={cls.innerModal}>
-                <Text title={feedbackTitle}/>
-                <Input placeholder='Ваш отзыв' value={feedback} onChange={setFeedback}/>
+            <Text title={feedbackTitle} />
+            <Input placeholder={t('Ваш отзыв')} value={feedback} onChange={setFeedback} />
             <div className={cls.btnWrapper}>
                 <Button onClick={cancelHandle} theme={ButtonTheme.OUTLINE_RED}>
-                    Закрыть
+                    {t('Закрыть')}
                 </Button>
                 <Button onClick={acceptHandle}>
-                    Отправить
+                    {t('Отправить')}
                 </Button>
             </div>
         </div>
-    )
+    );
 
     return (
-        <div className={classNames(cls.ratingCard, [className])}>
+        <Card className={classNames(cls.ratingCard, [className])} fullWidth>
             <div className={cls.wrapper}>
-                <Text title={title}/>
-                <StarRating size={40} onSelect={onSelectedStarts}/>
+                <Text title={title} />
+                <StarRating rating={rating} size={40} onSelect={onSelectedStarts} />
             </div>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>
@@ -82,6 +87,6 @@ export const RatingCard = ({
                     {modalContent}
                 </Drawer>
             </MobileView>
-        </div>
-     )
-}
+        </Card>
+    );
+};

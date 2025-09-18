@@ -1,6 +1,12 @@
 {
     "Введите текст комментария": "Enter the comment text",
     "Отправить": "Send",
+    "Редактировать": "Edit",
+    "Назад к списку": "Back to the list",
     "Произошла ошибка при загрузке статьи.": "An error occurred when uploading the article.",
-    "Нет комментариев": "No comments"
+    "Нет комментариев": "No comments",
+    "Оцените статью": "Rate the article",
+    "Оставьте совй отзыв о статье, это поможет улучшить качество": "Leave your review about the article, it will help to improve the quality",
+    "Ваш отзыв": "Your feedback",
+    "Закрыть": "Cancel"
 }

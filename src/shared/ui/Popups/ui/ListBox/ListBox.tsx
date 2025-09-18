@@ -48,7 +48,7 @@ export const Listbox = ({
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button as='div' className={popupCls.trigger}>
+                <HListBox.Button as="div" className={popupCls.trigger}>
                     <Button>
                         {value ?? defaultValue}
                     </Button>
