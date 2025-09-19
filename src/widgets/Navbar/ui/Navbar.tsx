@@ -7,7 +7,7 @@ import { LoginModal } from '@/features/AuthByUsername';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
-import { routePath } from '@/shared/config/routeConfig/routeConfig';
+import { routePath } from '@/shared/const/router';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 
 import { NotificationButton } from '@/features/notificationButton';
