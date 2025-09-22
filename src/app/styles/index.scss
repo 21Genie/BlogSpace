@@ -1,7 +1,7 @@
-@import "./reset";
-@import "./themes/dark";
-@import "./themes/normal";
-@import "./variables/global";
+@use "./reset";
+@use "./themes/dark";
+@use "./themes/normal";
+@use "./variables/global";
 
 body {
     font: var(--font-m);

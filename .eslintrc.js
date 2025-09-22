@@ -64,6 +64,10 @@ module.exports = {
         'arrow-body-style': 'off',
         'dzen-plugin/path-checker': ['error', { alias: '@' }],
         'dzen-plugin/public-api-imports': ['error', { alias: '@' }],
+        'dzen-plugin/layer-imports': ['error', {
+            alias: '@',
+            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+        }],
     },
     globals: {
         __IS_DEV__: true,

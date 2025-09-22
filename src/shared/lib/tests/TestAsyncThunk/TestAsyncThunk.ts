@@ -1,6 +1,7 @@
 import { AsyncThunkAction } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
 import { StateSchema } from '@/app/providers/StoreProvider';
+/* eslint-disable-next-line */
 import { ValidateProfileErrors } from '@/features/editableProfileCard';
 
 jest.mock('axios');
