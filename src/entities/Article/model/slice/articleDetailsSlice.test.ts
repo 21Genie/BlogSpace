@@ -1,7 +1,6 @@
 import { ArticleDetailsSchema } from '../types/ArticleDetailsSchema';
 import { articleDetailsReducer } from './articleDetailsSlice';
 import { fetchArticleById } from '../services/fetchArticleById';
-import { Article } from '../types/article';
 
 const data = {
     id: 1,

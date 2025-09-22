@@ -6,7 +6,6 @@ import { Dropdown } from '@/shared/ui/Popups';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 export const AvatarDropdown = () => {
     const authData = useSelector(getUserAuthData);
