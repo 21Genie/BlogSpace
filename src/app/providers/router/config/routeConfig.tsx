@@ -9,48 +9,52 @@ import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { AppRoutesProps } from '@/shared/types/router';
-import { AppRoutes, routePath } from '@/shared/const/router';
+import {
+    AppRoutes, getRouteAbout, getRouteAdmin,
+    getRouteArticleCreate, getRouteArticleEdit, getRouteArticles,
+    getRouteArticlesDetails, getRouteForbidden, getRouteMain, getRouteProfile,
+} from '@/shared/const/router';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
-        path: routePath.main,
+        path: getRouteMain(),
         element: <MainPage />,
     },
     [AppRoutes.ABOUT]: {
-        path: routePath.about,
+        path: getRouteAbout(),
         element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
-        path: `${routePath.profile}:id`,
+        path: getRouteProfile(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
-        path: routePath.articles,
+        path: getRouteArticles(),
         element: <ArticlesPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_DETAILS]: {
-        path: `${routePath.article_details}:id`,
+        path: getRouteArticlesDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_CREATE]: {
-        path: `${routePath.article_create}`,
+        path: getRouteArticleCreate(),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_EDIT]: {
-        path: `${routePath.article_edit}`,
+        path: getRouteArticleEdit(':id'),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     [AppRoutes.FORBIDDEN]: {
-        path: `${routePath.forbidden}`,
+        path: getRouteForbidden(),
         element: <ForbiddenPage />,
     },
     [AppRoutes.ADMIN_PANEL]: {
-        path: `${routePath.admin_panel}`,
+        path: getRouteAdmin(),
         element: <AdminPanelPage />,
         authOnly: true,
         roles: [UserRole.ADMIN, UserRole.MANAGER],
@@ -58,7 +62,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
 
     // last
     [AppRoutes.NOT_FOUND]: {
-        path: routePath.not_found,
+        path: '/*',
         element: <NotFoundPage />,
     },
 };

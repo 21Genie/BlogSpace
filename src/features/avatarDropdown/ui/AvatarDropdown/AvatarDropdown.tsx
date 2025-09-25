@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { routePath } from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
@@ -28,9 +28,9 @@ export const AvatarDropdown = () => {
             trigger={<Avatar size={30} src={authData.avatar} />}
             items={[
                 ...(isAdminPanelAvailable ? [{
-                    content: 'Админка', href: routePath.admin_panel,
+                    content: 'Админка', href: getRouteAdmin(),
                 }] : []),
-                { content: 'Профиль', href: routePath.profile + authData.id },
+                { content: 'Профиль', href: getRouteProfile(authData.id) },
                 { content: 'Выйти', onClick: onLogout },
             ]}
         />
