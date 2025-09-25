@@ -25,7 +25,8 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "start-storybook -p 6009 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "rm -rf ./node_modules/.cache"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
