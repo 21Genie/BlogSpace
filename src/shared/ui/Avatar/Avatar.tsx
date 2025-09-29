@@ -5,7 +5,7 @@ import { AppImage } from '../AppImage/AppImage';
 import { Skeleton } from '../Skeleton/Skeleton';
 import { Icon } from '../Icon/Icon';
 
-import UserImage from '@/shared/assets/icons/user-filled.svg'
+import UserImage from '@/shared/assets/icons/user-filled.svg';
 
 interface AvatarProps {
     src?: string,
@@ -22,8 +22,8 @@ export const Avatar = ({
         height: size || 100,
     }), [size]);
 
-    const fallback = <Skeleton width={size} height={size} border='50%'/>;
-    const errorFallback = <Icon inverted Svg={UserImage} width={size} height={size}/>;
+    const fallback = <Skeleton width={size} height={size} border="50%" />;
+    const errorFallback = <Icon inverted Svg={UserImage} width={size} height={size} />;
 
     return (
         <AppImage

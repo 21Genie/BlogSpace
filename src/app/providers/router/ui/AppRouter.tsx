@@ -1,4 +1,4 @@
-import { Suspense, useCallback } from 'react';
+import React, { Fragment, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { PageLoader } from '@/widgets/PageLoader';
@@ -18,9 +18,9 @@ export const AppRouter = () => {
                     <RequireAuth roles={roles}>{element}</RequireAuth>
                 )
                 : (
-                    <div>
+                    <>
                         {element}
-                    </div>
+                    </>
                 )}
         />
     ), []);

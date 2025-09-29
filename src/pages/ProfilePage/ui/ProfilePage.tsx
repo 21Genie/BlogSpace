@@ -23,7 +23,7 @@ const ProfilePage = () => {
             reducers={reducers}
             removeAfterUnmount
         >
-            <Page>
+            <Page data-testid="ProfilePage">
                 <EditableProfileCard id={id} />
             </Page>
         </DynamicModuleLoader>

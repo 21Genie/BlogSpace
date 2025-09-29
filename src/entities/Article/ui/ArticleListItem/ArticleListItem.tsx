@@ -1,6 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import ViewsIcon from '@/shared/assets/icons/views.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
@@ -56,11 +56,11 @@ export const ArticleListItem = ({
                     </div>
                     <Text title={article.title} className={cls.title} />
                     {types}
-                    <AppImage 
-                        fallback={<Skeleton height={250} width={200}/>}
-                        src={article.img} 
-                        className={cls.img} 
-                        alt={article.title} 
+                    <AppImage
+                        fallback={<Skeleton height={250} width={200} />}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
                     />
                     <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     <div className={cls.footer}>
@@ -79,12 +79,12 @@ export const ArticleListItem = ({
             <AppLink target={target} to={`/articles/${article.id}`}>
                 <Card>
                     <div className={cls.imageWrapper}>
-                    <AppImage 
-                        fallback={<Skeleton height={250} width={200}/>}
-                        src={article.img} 
-                        className={cls.img} 
-                        alt={article.title} 
-                    />
+                        <AppImage
+                            fallback={<Skeleton height={250} width={200} />}
+                            src={article.img}
+                            className={cls.img}
+                            alt={article.title}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <div className={cls.infoWrapper}>

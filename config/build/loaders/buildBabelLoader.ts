@@ -33,5 +33,5 @@ export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => {
                 ].filter(Boolean),
             },
         },
-    })
+    });
 };
