@@ -1,6 +1,6 @@
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
 
 import ViewsIcon from '@/shared/assets/icons/views.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
@@ -18,6 +18,8 @@ import {
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import cls from './ArticleListItem.module.scss';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface ArticleListItemProps {
     article: Article,
@@ -54,7 +56,12 @@ export const ArticleListItem = ({
                     </div>
                     <Text title={article.title} className={cls.title} />
                     {types}
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage 
+                        fallback={<Skeleton height={250} width={200}/>}
+                        src={article.img} 
+                        className={cls.img} 
+                        alt={article.title} 
+                    />
                     <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     <div className={cls.footer}>
                         <AppLink target={target} to={`/articles/${article.id}`}>
@@ -72,7 +79,12 @@ export const ArticleListItem = ({
             <AppLink target={target} to={`/articles/${article.id}`}>
                 <Card>
                     <div className={cls.imageWrapper}>
-                        <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage 
+                        fallback={<Skeleton height={250} width={200}/>}
+                        src={article.img} 
+                        className={cls.img} 
+                        alt={article.title} 
+                    />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <div className={cls.infoWrapper}>
