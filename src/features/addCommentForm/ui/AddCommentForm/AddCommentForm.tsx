@@ -6,17 +6,24 @@ import { Input } from '@/shared/ui/Input/Input';
 import { Button } from '@/shared/ui/Button/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import {
-    getAddCommentFormText, getAddCommentFormError,
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice';
+import {
+    getAddCommentFormText,
+    getAddCommentFormError,
 } from '../../model/selectors/AddCommentFormSelectors';
 
 import cls from './AddCommentForm.module.scss';
 
 interface AddCommentFormProps {
-    onSendComment: (text: string) => void
-    className?: string,
+    onSendComment: (text: string) => void;
+    className?: string;
 }
 
 const reducers: ReducersList = {
@@ -29,9 +36,12 @@ const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
     const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
 
-    const onCommentTextChange = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+    const onCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const onSendHandler = useCallback(() => {
         onSendComment(text || '');

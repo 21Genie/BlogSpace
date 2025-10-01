@@ -7,5 +7,4 @@ export type {
     ThunkExtraArg,
     ThunkConfig,
     StateSchemaKey,
-}
-    from './config/stateSchema';
+} from './config/stateSchema';

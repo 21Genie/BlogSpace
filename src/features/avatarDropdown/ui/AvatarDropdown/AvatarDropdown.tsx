@@ -4,7 +4,10 @@ import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entities/User';
 
 export const AvatarDropdown = () => {
@@ -27,9 +30,14 @@ export const AvatarDropdown = () => {
             direction="bottom left"
             trigger={<Avatar size={30} src={authData.avatar} />}
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: 'Админка', href: getRouteAdmin(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: 'Админка',
+                              href: getRouteAdmin(),
+                          },
+                      ]
+                    : []),
                 { content: 'Профиль', href: getRouteProfile(authData.id) },
                 { content: 'Выйти', onClick: onLogout },
             ]}

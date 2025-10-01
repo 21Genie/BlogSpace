@@ -3,5 +3,5 @@ export const enum Country {
     Ukraine = 'Ukraine',
     Belarus = 'Belarus',
     Kazahstan = 'Kazahstan',
-    Armenia = 'Armenia'
+    Armenia = 'Armenia',
 }

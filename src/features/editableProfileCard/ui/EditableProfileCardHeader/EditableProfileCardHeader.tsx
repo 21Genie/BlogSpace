@@ -45,27 +45,26 @@ export const EditableProfileCardHeader = () => {
                         >
                             {t('Редактировать')}
                         </Button>
-                    )
-                        : (
-                            <>
-                                <Button
-                                    className={cls.editBtn}
-                                    theme={ButtonTheme.OUTLINE_RED}
-                                    onClick={onCancelEdit}
-                                    data-testid="EditableProfileCardHeader.CancelButton"
-                                >
-                                    {t('Отменить')}
-                                </Button>
-                                <Button
-                                    className={cls.editBtn}
-                                    theme={ButtonTheme.OUTLINE}
-                                    onClick={onSave}
-                                    data-testid="EditableProfileCardHeader.SaveButton"
-                                >
-                                    {t('Сохранить')}
-                                </Button>
-                            </>
-                        )}
+                    ) : (
+                        <>
+                            <Button
+                                className={cls.editBtn}
+                                theme={ButtonTheme.OUTLINE_RED}
+                                onClick={onCancelEdit}
+                                data-testid="EditableProfileCardHeader.CancelButton"
+                            >
+                                {t('Отменить')}
+                            </Button>
+                            <Button
+                                className={cls.editBtn}
+                                theme={ButtonTheme.OUTLINE}
+                                onClick={onSave}
+                                data-testid="EditableProfileCardHeader.SaveButton"
+                            >
+                                {t('Сохранить')}
+                            </Button>
+                        </>
+                    )}
                 </div>
             )}
         </div>

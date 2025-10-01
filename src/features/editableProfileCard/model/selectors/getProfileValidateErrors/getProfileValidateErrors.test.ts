@@ -9,10 +9,14 @@ describe('getProfileValidateErrors', () => {
                 validateErrors: [ValidateProfileErrors.INCORRECT_COUNTRY],
             },
         };
-        expect(getProfileValidateErrors(state as StateSchema)).toEqual([ValidateProfileErrors.INCORRECT_COUNTRY]);
+        expect(getProfileValidateErrors(state as StateSchema)).toEqual([
+            ValidateProfileErrors.INCORRECT_COUNTRY,
+        ]);
     });
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileValidateErrors(state as StateSchema)).toEqual(undefined);
+        expect(getProfileValidateErrors(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });

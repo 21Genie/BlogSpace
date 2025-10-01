@@ -8,22 +8,25 @@ import { Icon } from '../Icon/Icon';
 import UserImage from '@/shared/assets/icons/user-filled.svg';
 
 interface AvatarProps {
-    src?: string,
-    className?: string,
-    alt?: string,
-    size?: number,
+    src?: string;
+    className?: string;
+    alt?: string;
+    size?: number;
 }
 
-export const Avatar = ({
-    className, src, alt, size,
-}: AvatarProps) => {
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size || 100,
-        height: size || 100,
-    }), [size]);
+export const Avatar = ({ className, src, alt, size }: AvatarProps) => {
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size || 100,
+            height: size || 100,
+        }),
+        [size],
+    );
 
     const fallback = <Skeleton width={size} height={size} border="50%" />;
-    const errorFallback = <Icon inverted Svg={UserImage} width={size} height={size} />;
+    const errorFallback = (
+        <Icon inverted Svg={UserImage} width={size} height={size} />
+    );
 
     return (
         <AppImage

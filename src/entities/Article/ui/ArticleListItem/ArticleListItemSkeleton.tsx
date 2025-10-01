@@ -5,19 +5,40 @@ import { ArticleView } from '../../model/consts/consts';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
-    view: ArticleView,
-    className?: string,
+    view: ArticleView;
+    className?: string;
 }
 
-export const ArticleListItemSkeleton = ({ className, view }: ArticleListItemSkeletonProps) => {
+export const ArticleListItemSkeleton = ({
+    className,
+    view,
+}: ArticleListItemSkeletonProps) => {
     if (view === ArticleView.BIG) {
         return (
-            <div className={classNames(cls.articleListItem, [className, cls[view]])}>
+            <div
+                className={classNames(cls.articleListItem, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <Card>
                     <div className={cls.header}>
-                        <Skeleton border="50%" width={30} height={30} className={cls.avatar} />
-                        <Skeleton width={150} height={16} className={cls.username} />
-                        <Skeleton width={150} height={16} className={cls.date} />
+                        <Skeleton
+                            border="50%"
+                            width={30}
+                            height={30}
+                            className={cls.avatar}
+                        />
+                        <Skeleton
+                            width={150}
+                            height={16}
+                            className={cls.username}
+                        />
+                        <Skeleton
+                            width={150}
+                            height={16}
+                            className={cls.date}
+                        />
                     </div>
                     <Skeleton width={250} height={24} className={cls.title} />
                     <Skeleton height={200} className={cls.img} />
@@ -30,7 +51,9 @@ export const ArticleListItemSkeleton = ({ className, view }: ArticleListItemSkel
     }
 
     return (
-        <div className={classNames(cls.articleListItem, [className, cls[view]])}>
+        <div
+            className={classNames(cls.articleListItem, [className, cls[view]])}
+        >
             <Card>
                 <div className={cls.imageWrapper}>
                     <Skeleton width={200} height={200} className={cls.img} />

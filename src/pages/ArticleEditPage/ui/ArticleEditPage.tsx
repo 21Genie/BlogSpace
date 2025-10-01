@@ -3,11 +3,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {
-   className?: string
+    className?: string;
 }
 
 const ArticleEditPage = ({ className }: ArticleEditPageProps) => {
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
 
     return (

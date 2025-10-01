@@ -12,9 +12,7 @@ import { Card } from '@/shared/ui/Card/Card';
 
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
-import {
-    Article, ArticleTextBlock,
-} from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import cls from './ArticleListItem.module.scss';
@@ -22,14 +20,17 @@ import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface ArticleListItemProps {
-    article: Article,
-    view: ArticleView,
-    className?: string,
-    target?: HTMLAttributeAnchorTarget
+    article: Article;
+    view: ArticleView;
+    className?: string;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = ({
-    className, article, view, target,
+    className,
+    article,
+    view,
+    target,
 }: ArticleListItemProps) => {
     const { t } = useTranslation('articles');
 
@@ -47,11 +48,19 @@ export const ArticleListItem = ({
         ) as ArticleTextBlock;
 
         return (
-            <div className={classNames(cls.articleListItem, [className, cls[view]])}>
+            <div
+                className={classNames(cls.articleListItem, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <Card>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
-                        <Text text={article.user.username} className={cls.username} />
+                        <Text
+                            text={article.user.username}
+                            className={cls.username}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <Text title={article.title} className={cls.title} />
@@ -62,7 +71,10 @@ export const ArticleListItem = ({
                         className={cls.img}
                         alt={article.title}
                     />
-                    <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+                    <ArticleTextBlockComponent
+                        block={textBlock}
+                        className={cls.textBlock}
+                    />
                     <div className={cls.footer}>
                         <AppLink target={target} to={`/articles/${article.id}`}>
                             <Button>{t('Читать далее...')}</Button>
@@ -75,7 +87,9 @@ export const ArticleListItem = ({
     }
 
     return (
-        <div className={classNames(cls.articleListItem, [className, cls[view]])}>
+        <div
+            className={classNames(cls.articleListItem, [className, cls[view]])}
+        >
             <AppLink target={target} to={`/articles/${article.id}`}>
                 <Card>
                     <div className={cls.imageWrapper}>

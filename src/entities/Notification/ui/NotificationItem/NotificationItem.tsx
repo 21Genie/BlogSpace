@@ -5,11 +5,14 @@ import { INotification } from '../../model/types/notification';
 import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
-    className?: string,
-    item?: INotification
+    className?: string;
+    item?: INotification;
 }
 
-export const NotificationItem = ({ className, item }: NotificationItemProps) => {
+export const NotificationItem = ({
+    className,
+    item,
+}: NotificationItemProps) => {
     const content = (
         <Card
             className={classNames(cls.notificationItem, [className])}

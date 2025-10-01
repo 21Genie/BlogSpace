@@ -7,7 +7,7 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import LangIcon from '@/shared/assets/icons/language-icon.svg';
 
 interface LangSwitcherProps {
-   className?: string
+    className?: string;
 }
 
 export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {

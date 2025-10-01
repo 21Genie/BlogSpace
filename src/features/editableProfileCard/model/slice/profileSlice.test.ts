@@ -19,20 +19,30 @@ describe('profileSlice', () => {
     test('test set readonly', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: false };
         expect(
-            profileReducer(state as ProfileSchema, profileAction.setReadonly(true)),
+            profileReducer(
+                state as ProfileSchema,
+                profileAction.setReadonly(true),
+            ),
         ).toEqual({ readonly: true });
     });
     test('update profile', () => {
         const state: DeepPartial<ProfileSchema> = { form: data };
         expect(
-            profileReducer(state as ProfileSchema, profileAction.updateProfile({
-                ...data, lastname: 'test',
-            })),
+            profileReducer(
+                state as ProfileSchema,
+                profileAction.updateProfile({
+                    ...data,
+                    lastname: 'test',
+                }),
+            ),
         ).toEqual({ form: { ...data, lastname: 'test' } });
     });
 
     test('update profile service pending', () => {
-        const state: DeepPartial<ProfileSchema> = { isLoading: false, validateErrors: [ValidateProfileErrors.SERVER_ERROR] };
+        const state: DeepPartial<ProfileSchema> = {
+            isLoading: false,
+            validateErrors: [ValidateProfileErrors.SERVER_ERROR],
+        };
         expect(
             profileReducer(state as ProfileSchema, updateProfileData.pending),
         ).toEqual({ isLoading: true, validateErrors: undefined });
@@ -43,7 +53,10 @@ describe('profileSlice', () => {
             isLoading: true,
         };
         expect(
-            profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data, '')),
+            profileReducer(
+                state as ProfileSchema,
+                updateProfileData.fulfilled(data, ''),
+            ),
         ).toEqual({
             isLoading: false,
             readonly: true,

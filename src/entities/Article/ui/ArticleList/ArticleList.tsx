@@ -11,20 +11,17 @@ import cls from './ArticleList.module.scss';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
-    articles: Article[],
-    view?: ArticleView,
-    className?: string,
-    isLoading?: boolean,
-    target?: HTMLAttributeAnchorTarget
+    articles: Article[];
+    view?: ArticleView;
+    className?: string;
+    isLoading?: boolean;
+    target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => (
+const getSkeletons = (view: ArticleView) =>
     new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
-        .map((_, index) => (
-            <ArticleListItemSkeleton view={view} key={index} />
-        ))
-);
+        .map((_, index) => <ArticleListItemSkeleton view={view} key={index} />);
 
 export const ArticleList = ({
     className,
@@ -45,7 +42,9 @@ export const ArticleList = ({
 
     if (!isLoading && !articles.length) {
         return (
-            <div className={classNames(cls.articleList, [className, cls[view]])}>
+            <div
+                className={classNames(cls.articleList, [className, cls[view]])}
+            >
                 <Text size={TextSize.L} title={t('Статьи не найдены')} />
             </div>
         );
@@ -53,11 +52,14 @@ export const ArticleList = ({
 
     return (
         <div className={classNames(cls.articleList, [className, cls[view]])}>
-            {articles?.length > 0
-                ? articles?.map(renderArticle)
-                : null}
+            {articles?.length > 0 ? articles?.map(renderArticle) : null}
             {isLoading && (
-                <div className={classNames(cls.articleList, [className, cls[view]])}>
+                <div
+                    className={classNames(cls.articleList, [
+                        className,
+                        cls[view],
+                    ])}
+                >
                     {getSkeletons(view)}
                 </div>
             )}

@@ -8,16 +8,26 @@ describe('className', () => {
         expect(classNames('class1', ['class2'])).toBe('class1 class2');
     });
     test('with mods', () => {
-        expect(classNames('class1', ['class2'], { hovered: true })).toBe('class1 class2 hovered');
+        expect(classNames('class1', ['class2'], { hovered: true })).toBe(
+            'class1 class2 hovered',
+        );
     });
     test('with mods false', () => {
         const expected = 'class1 class2 hovered';
-        expect(classNames('class1', ['class2'], { hovered: true, scrollable: false }))
-            .toBe(expected);
+        expect(
+            classNames('class1', ['class2'], {
+                hovered: true,
+                scrollable: false,
+            }),
+        ).toBe(expected);
     });
     test('with mods undefined', () => {
         const expected = 'class1 class2 hovered';
-        expect(classNames('class1', ['class2'], { hovered: true, scrollable: undefined }))
-            .toBe(expected);
+        expect(
+            classNames('class1', ['class2'], {
+                hovered: true,
+                scrollable: undefined,
+            }),
+        ).toBe(expected);
     });
 });

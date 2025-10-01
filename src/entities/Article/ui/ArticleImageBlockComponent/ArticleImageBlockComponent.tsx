@@ -4,15 +4,16 @@ import { ArticleImageBlock } from '../../model/types/article';
 import cls from './ArticleImageBlockComponent.module.scss';
 
 interface ArticleImageBlockComponentProps {
-    block: ArticleImageBlock,
-    className?: string
+    block: ArticleImageBlock;
+    className?: string;
 }
 
-export const ArticleImageBlockComponent = ({ className, block }: ArticleImageBlockComponentProps) => (
+export const ArticleImageBlockComponent = ({
+    className,
+    block,
+}: ArticleImageBlockComponentProps) => (
     <div className={classNames(cls.articleImageBlockComponent, [className])}>
         <img src={block.src} className={cls.img} alt={block.title} />
-        {block.title && (
-            <Text text={block.title} align={TextAlign.CENTER} />
-        )}
+        {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
     </div>
 );

@@ -1,8 +1,4 @@
-import {
-    MutableRefObject, ReactNode,
-    UIEvent,
-    useRef,
-} from 'react';
+import { MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -18,9 +14,9 @@ import { TestProps } from '@/shared/types/tests';
 import cls from './Page.module.scss';
 
 interface PageProps extends TestProps {
-    children: ReactNode,
-    className?: string,
-    onScrollEnd?: () => void
+    children: ReactNode;
+    className?: string;
+    onScrollEnd?: () => void;
 }
 
 export const Page = (props: PageProps) => {
@@ -29,7 +25,9 @@ export const Page = (props: PageProps) => {
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollTop = useSelector((state:StateSchema) => getScrollByPath(state, pathname));
+    const scrollTop = useSelector((state: StateSchema) =>
+        getScrollByPath(state, pathname),
+    );
 
     useInfiniteScroll({
         targetRef,
@@ -57,9 +55,9 @@ export const Page = (props: PageProps) => {
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
-            {onScrollEnd
-                ? <div className={cls.target} ref={targetRef} />
-                : null}
+            {onScrollEnd ? (
+                <div className={cls.target} ref={targetRef} />
+            ) : null}
         </section>
     );
 };

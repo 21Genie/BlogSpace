@@ -12,13 +12,13 @@ import { Text } from '@/shared/ui/Text/Text';
 import cls from './RatingCard.module.scss';
 
 interface RatingCardProps {
-    className?: string,
-    title?: string
-    feedbackTitle?: string,
-    hasFeedback?: boolean,
-    rating?: number,
-    onAccept?: (startsCount: number, feedback?: string) => void,
-    onCancel?: (startsCount: number) => void,
+    className?: string;
+    title?: string;
+    feedbackTitle?: string;
+    hasFeedback?: boolean;
+    rating?: number;
+    onAccept?: (startsCount: number, feedback?: string) => void;
+    onCancel?: (startsCount: number) => void;
 }
 
 export const RatingCard = ({
@@ -35,15 +35,18 @@ export const RatingCard = ({
     const [starsCount, setStarsCount] = useState(rating || 0);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectedStarts = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
+    const onSelectedStarts = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
 
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
@@ -58,14 +61,16 @@ export const RatingCard = ({
     const modalContent = (
         <div className={cls.innerModal}>
             <Text title={feedbackTitle} />
-            <Input placeholder={t('Ваш отзыв')} value={feedback} onChange={setFeedback} />
+            <Input
+                placeholder={t('Ваш отзыв')}
+                value={feedback}
+                onChange={setFeedback}
+            />
             <div className={cls.btnWrapper}>
                 <Button onClick={cancelHandle} theme={ButtonTheme.OUTLINE_RED}>
                     {t('Закрыть')}
                 </Button>
-                <Button onClick={acceptHandle}>
-                    {t('Отправить')}
-                </Button>
+                <Button onClick={acceptHandle}>{t('Отправить')}</Button>
             </div>
         </div>
     );
@@ -74,7 +79,11 @@ export const RatingCard = ({
         <Card className={classNames(cls.ratingCard, [className])} fullWidth>
             <div className={cls.wrapper}>
                 <Text title={title} />
-                <StarRating rating={rating} size={40} onSelect={onSelectedStarts} />
+                <StarRating
+                    rating={rating}
+                    size={40}
+                    onSelect={onSelectedStarts}
+                />
             </div>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>

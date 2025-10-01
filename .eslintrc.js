@@ -8,6 +8,7 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -26,12 +27,10 @@ module.exports = {
         'unused-imports',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
         'unused-imports/no-unused-imports': 'error',
-        indent: [2, 4],
         'react/jsx-filename-extension': [
-            1, { extensions: ['.js', '.ts', '.jsx', '.tsx'] },
+            2,
+            { extensions: ['.js', '.ts', '.jsx', '.tsx'] },
         ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
@@ -51,9 +50,15 @@ module.exports = {
             {
                 markupOnly: true,
                 ignoreAttribute: [
-                    'data-testid', 'to', 'name',
-                    'alt', 'label', 'target',
-                    'as', 'direction', 'border',
+                    'data-testid',
+                    'to',
+                    'name',
+                    'alt',
+                    'label',
+                    'target',
+                    'as',
+                    'direction',
+                    'border',
                 ],
             },
         ],
@@ -68,10 +73,14 @@ module.exports = {
         'arrow-body-style': 'off',
         'dzen-plugin/path-checker': ['error', { alias: '@' }],
         'dzen-plugin/public-api-imports': ['error', { alias: '@' }],
-        'dzen-plugin/layer-imports': ['error', {
-            alias: '@',
-            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-        }],
+        'dzen-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     },
     globals: {
         __IS_DEV__: true,

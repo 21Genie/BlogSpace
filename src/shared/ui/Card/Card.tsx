@@ -5,13 +5,13 @@ import cls from './Card.module.scss';
 
 export const enum CardTheme {
     NORMAl = 'normal',
-    OUTLINED = 'outlined'
+    OUTLINED = 'outlined',
 }
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-    children: ReactNode,
-    className?: string,
-    theme?: CardTheme,
-    fullWidth?: boolean
+    children: ReactNode;
+    className?: string;
+    theme?: CardTheme;
+    fullWidth?: boolean;
 }
 
 export const Card = ({
@@ -21,7 +21,12 @@ export const Card = ({
     fullWidth,
     ...otherProps
 }: CardProps) => (
-    <div className={classNames(cls.card, [className, cls[theme]], { [cls.fullWidth]: fullWidth })} {...otherProps}>
+    <div
+        className={classNames(cls.card, [className, cls[theme]], {
+            [cls.fullWidth]: fullWidth,
+        })}
+        {...otherProps}
+    >
         {children}
     </div>
 );

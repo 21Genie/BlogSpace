@@ -1,20 +1,18 @@
-import { selectByTestId } from 'cypress/helpers/selectByTestId';
-
 describe('Роутинг', () => {
     describe('Пользователь НЕ авторизован', () => {
         it('переход на главную страницу', () => {
             cy.visit('/');
-            cy.get(selectByTestId('MainPage')).should('exist');
+            cy.getByTestId('MainPage').should('exist');
         });
 
         it('Переход открывает страницу пользователя', () => {
             cy.visit('/profile/1');
-            cy.get(selectByTestId('MainPage')).should('exist');
+            cy.getByTestId('MainPage').should('exist');
         });
 
         it('Переход открывает несуществующий маршрут', () => {
             cy.visit('/not_found');
-            cy.get(selectByTestId('NotFoundPage')).should('exist');
+            cy.getByTestId('NotFoundPage').should('exist');
         });
     });
 
@@ -24,12 +22,12 @@ describe('Роутинг', () => {
         });
         it('Переход открывает страницу пользователя', () => {
             cy.visit('/profile/1');
-            cy.get(selectByTestId('ProfilePage')).should('exist');
+            cy.getByTestId('ProfilePage').should('exist');
         });
 
         it('Переход открывает страницу со списком статей', () => {
             cy.visit('/articles');
-            cy.get(selectByTestId('ArticlesPage')).should('exist');
+            cy.getByTestId('ArticlesPage').should('exist');
         });
     });
 });

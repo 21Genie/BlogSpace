@@ -4,21 +4,18 @@ import { ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponentProps {
-    block: ArticleTextBlock,
-    className?: string
+    block: ArticleTextBlock;
+    className?: string;
 }
 
-export const ArticleTextBlockComponent = ({ className, block }: ArticleTextBlockComponentProps) => (
+export const ArticleTextBlockComponent = ({
+    className,
+    block,
+}: ArticleTextBlockComponentProps) => (
     <div className={classNames(cls.articleTextBlockComponent, [className])}>
-        {block.title && (
-            <Text title={block.title} className={cls.title} />
-        )}
+        {block.title && <Text title={block.title} className={cls.title} />}
         {block.paragraphs.map((paragraph) => (
-            <Text
-                key={paragraph}
-                text={paragraph}
-                className={cls.paragraph}
-            />
+            <Text key={paragraph} text={paragraph} className={cls.paragraph} />
         ))}
     </div>
 );

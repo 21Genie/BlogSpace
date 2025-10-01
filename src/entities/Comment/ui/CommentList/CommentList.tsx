@@ -7,12 +7,16 @@ import { Comment } from '../../model/types/comment';
 import cls from './CommentList.module.scss';
 
 interface CommentListProps {
-   className?: string,
-   comments?: Comment[],
-   isLoading?: boolean
+    className?: string;
+    comments?: Comment[];
+    isLoading?: boolean;
 }
 
-export const CommentList = ({ className, comments, isLoading }: CommentListProps) => {
+export const CommentList = ({
+    className,
+    comments,
+    isLoading,
+}: CommentListProps) => {
     const { t } = useTranslation('article');
 
     if (isLoading) {
@@ -27,8 +31,8 @@ export const CommentList = ({ className, comments, isLoading }: CommentListProps
 
     return (
         <div className={classNames(cls.commentList, [className])}>
-            {comments?.length
-                ? comments.map((comment) => (
+            {comments?.length ? (
+                comments.map((comment) => (
                     <CommentCard
                         key={comment.id}
                         className={cls.comment}
@@ -36,7 +40,9 @@ export const CommentList = ({ className, comments, isLoading }: CommentListProps
                         isLoading={isLoading}
                     />
                 ))
-                : <Text text={t('Нет комментариев')} />}
+            ) : (
+                <Text text={t('Нет комментариев')} />
+            )}
         </div>
     );
 };

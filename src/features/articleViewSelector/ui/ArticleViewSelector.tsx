@@ -7,9 +7,9 @@ import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {
-    view?: ArticleView,
-    onViewClick: (view: ArticleView) => void,
-    className?: string
+    view?: ArticleView;
+    onViewClick: (view: ArticleView) => void;
+    className?: string;
 }
 
 const viewTypes = [
@@ -23,7 +23,11 @@ const viewTypes = [
     },
 ];
 
-export const ArticleViewSelector = ({ className, view, onViewClick }: ArticleViewSelectorProps) => {
+export const ArticleViewSelector = ({
+    className,
+    view,
+    onViewClick,
+}: ArticleViewSelectorProps) => {
     const onClick = (newView: ArticleView) => () => onViewClick(newView);
 
     return (
@@ -35,7 +39,9 @@ export const ArticleViewSelector = ({ className, view, onViewClick }: ArticleVie
                     theme={ButtonTheme.CLEAR}
                 >
                     <Icon
-                        className={classNames('', [], { [cls.selected]: view === viewType.view })}
+                        className={classNames('', [], {
+                            [cls.selected]: view === viewType.view,
+                        })}
                         Svg={viewType.icon}
                     />
                 </Button>

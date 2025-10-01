@@ -6,8 +6,8 @@ import { Button, ButtonTheme } from '../Button/Button';
 import cls from './Code.module.scss';
 
 interface CodeProps {
-    text: string,
-    className?: string
+    text: string;
+    className?: string;
 }
 
 export const Code = ({ className, text }: CodeProps) => {
@@ -17,12 +17,14 @@ export const Code = ({ className, text }: CodeProps) => {
 
     return (
         <pre className={classNames(cls.code, [className])}>
-            <Button onClick={onCopy} className={cls.copyBtn} theme={ButtonTheme.CLEAR}>
+            <Button
+                onClick={onCopy}
+                className={cls.copyBtn}
+                theme={ButtonTheme.CLEAR}
+            >
                 <CopyIcon className={cls.icon} />
             </Button>
-            <code>
-                {text}
-            </code>
+            <code>{text}</code>
         </pre>
     );
 };

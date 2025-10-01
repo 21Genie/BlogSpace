@@ -10,9 +10,16 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { AppRoutesProps } from '@/shared/types/router';
 import {
-    AppRoutes, getRouteAbout, getRouteAdmin,
-    getRouteArticleCreate, getRouteArticleEdit, getRouteArticles,
-    getRouteArticlesDetails, getRouteForbidden, getRouteMain, getRouteProfile,
+    AppRoutes,
+    getRouteAbout,
+    getRouteAdmin,
+    getRouteArticleCreate,
+    getRouteArticleEdit,
+    getRouteArticles,
+    getRouteArticlesDetails,
+    getRouteForbidden,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/const/router';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {

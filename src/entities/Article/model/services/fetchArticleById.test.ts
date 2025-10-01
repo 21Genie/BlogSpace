@@ -18,7 +18,7 @@ describe('fetchArticleById', () => {
         const thunk = new TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({ article }));
 
-        const result = await thunk.callThunk(('1'));
+        const result = await thunk.callThunk('1');
         console.log(result);
     });
 

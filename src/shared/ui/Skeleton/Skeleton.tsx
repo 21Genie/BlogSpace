@@ -3,14 +3,17 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
-   className?: string,
-   height?: string | number,
-   width?: string | number,
-   border?: string
+    className?: string;
+    height?: string | number;
+    width?: string | number;
+    border?: string;
 }
 
 export const Skeleton = ({
-    className, border, height, width,
+    className,
+    border,
+    height,
+    width,
 }: SkeletonProps) => {
     const styles: CSSProperties = {
         width,
@@ -18,9 +21,6 @@ export const Skeleton = ({
         borderRadius: border,
     };
     return (
-        <div
-            className={classNames(cls.skeleton, [className])}
-            style={styles}
-        />
+        <div className={classNames(cls.skeleton, [className])} style={styles} />
     );
 };

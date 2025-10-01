@@ -10,10 +10,12 @@ import { getCanEditArticle } from '../../model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
-   className?: string
+    className?: string;
 }
 
-export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeaderProps) => {
+export const ArticleDetailsPageHeader = ({
+    className,
+}: ArticleDetailsPageHeaderProps) => {
     const { t } = useTranslation('article');
     const navigate = useNavigate();
     const canEdit = useSelector(getCanEditArticle);
@@ -31,10 +33,7 @@ export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeader
         <div className={classNames(cls.articleDetailsPageHeader, [className])}>
             <Button onClick={onBackToArticle}>{t('Назад к списку')}</Button>
             {canEdit && (
-                <Button
-                    className={cls.editBtn}
-                    onClick={onEditArticle}
-                >
+                <Button className={cls.editBtn} onClick={onEditArticle}>
                     {t('Редактировать')}
                 </Button>
             )}

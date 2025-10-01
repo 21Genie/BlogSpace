@@ -2,7 +2,10 @@ import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { TextAlign, Text, TextSize } from '@/shared/ui/Text/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -16,7 +19,9 @@ import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleBlock } from '../../../../entities/Article/model/types/article';
 import { articleDetailsReducer } from '../../../../entities/Article/model/slice/articleDetailsSlice';
 import {
-    getArticleDetailsIsLoading, getArticleDetailsError, getArticleDetailsData,
+    getArticleDetailsIsLoading,
+    getArticleDetailsError,
+    getArticleDetailsData,
 } from '../../../../entities/Article/model/selectors/articleDetails';
 import { fetchArticleById } from '../../../../entities/Article/model/services/fetchArticleById';
 
@@ -27,8 +32,8 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
-    id: string
-    className?: string,
+    id: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {
@@ -44,32 +49,32 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
-        case ArticleBlockType.TEXT:
-            return (
-                <ArticleTextBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        case ArticleBlockType.CODE:
-            return (
-                <ArticleCodeBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        case ArticleBlockType.IMAGE:
-            return (
-                <ArticleImageBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        default:
-            return null;
+            case ArticleBlockType.TEXT:
+                return (
+                    <ArticleTextBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            case ArticleBlockType.CODE:
+                return (
+                    <ArticleCodeBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            case ArticleBlockType.IMAGE:
+                return (
+                    <ArticleImageBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            default:
+                return null;
         }
     }, []);
 
@@ -82,7 +87,12 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <>
-                <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+                <Skeleton
+                    className={cls.avatar}
+                    width={200}
+                    height={200}
+                    border="50%"
+                />
                 <Skeleton className={cls.title} width={300} height={32} />
                 <Skeleton className={cls.skeleton} width={600} height={24} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />

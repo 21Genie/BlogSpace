@@ -1,7 +1,14 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+    createEntityAdapter,
+    createSlice,
+    PayloadAction,
+} from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-    Article, ArticleView, ArticleSortField, ArticleType,
+    Article,
+    ArticleView,
+    ArticleSortField,
+    ArticleType,
 } from '@/entities/Article';
 import { ARTICLES_VIEW_STORAGE_KEY } from '@/shared/const/localStorage';
 import { SortOrder } from '@/shared/types/sort';
@@ -39,7 +46,9 @@ export const articlesPageSlice = createSlice({
             localStorage.setItem(ARTICLES_VIEW_STORAGE_KEY, action.payload);
         },
         initState: (state) => {
-            const view = localStorage.getItem(ARTICLES_VIEW_STORAGE_KEY) as ArticleView;
+            const view = localStorage.getItem(
+                ARTICLES_VIEW_STORAGE_KEY,
+            ) as ArticleView;
             state.view = view;
             state.limit = view === ArticleView.BIG ? 4 : 9;
             state._inited = true;
@@ -70,10 +79,7 @@ export const articlesPageSlice = createSlice({
                     articlesAdapter.removeAll(state);
                 }
             })
-            .addCase(fetchArticlesList.fulfilled, (
-                state,
-                action,
-            ) => {
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.hasMore = action.payload.length >= state.limit;
 

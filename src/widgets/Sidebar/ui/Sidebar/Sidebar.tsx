@@ -13,7 +13,7 @@ import cls from './Sidebar.module.scss';
 import { getSidebarItems } from '../../model/selector/getSidebarItems';
 
 interface SidebarProps {
-   className?: string
+    className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
@@ -43,12 +43,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
             <nav>
                 <ul className={cls.items}>
-                    { sidebarItemsList.map((item) => (
+                    {sidebarItemsList.map((item) => (
                         <li key={item.path}>
-                            <SidebarItem
-                                item={item}
-                                collapsed={collapsed}
-                            />
+                            <SidebarItem item={item} collapsed={collapsed} />
                         </li>
                     ))}
                 </ul>

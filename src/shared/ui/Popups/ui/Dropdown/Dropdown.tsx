@@ -8,17 +8,17 @@ import popupCls from '../../styles/popup.module.scss';
 import cls from './Dropdown.module.scss';
 
 export interface DropdownItem {
-    content?: ReactNode,
-    onClick?: () => void,
-    href?: string
-    disabled?: boolean,
+    content?: ReactNode;
+    onClick?: () => void;
+    href?: string;
+    disabled?: boolean;
 }
 
 interface DropdownProps {
-    className?: string,
-    items?: DropdownItem[],
-    trigger?: ReactNode,
-    direction?: DropdownDirection
+    className?: string;
+    items?: DropdownItem[];
+    trigger?: ReactNode;
+    direction?: DropdownDirection;
 }
 
 export const Dropdown = ({
@@ -31,15 +31,15 @@ export const Dropdown = ({
 
     return (
         <Menu as="div" className={classNames(popupCls.popup, [className])}>
-            <Menu.Button className={popupCls.trigger}>
-                {trigger}
-            </Menu.Button>
+            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, menuClasses)}>
                 {items?.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
                             type="button"
-                            className={classNames(cls.item, [], { [popupCls.active]: active })}
+                            className={classNames(cls.item, [], {
+                                [popupCls.active]: active,
+                            })}
                             onClick={item.onClick}
                             disabled={item.disabled}
                         >

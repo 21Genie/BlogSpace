@@ -12,16 +12,23 @@ export default {
     },
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: ComponentStory<typeof Sidebar> = (args) => (
+    <Sidebar {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    loginForm: { username: 'admin', password: '123' },
-})];
+Light.decorators = [
+    StoreDecorator({
+        loginForm: { username: 'admin', password: '123' },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [StoreDecorator({
-    loginForm: { username: '123', password: 'asd' },
-}), ThemeDecorator(Theme.DARK)];
+Dark.decorators = [
+    StoreDecorator({
+        loginForm: { username: '123', password: 'asd' },
+    }),
+    ThemeDecorator(Theme.DARK),
+];

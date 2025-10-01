@@ -7,8 +7,13 @@ import { ValidateProfileErrors } from '@/features/editableProfileCard';
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
 
-type ActionCreatorType<Return, Arg, RejectValue>
-    = (arg: Arg) => AsyncThunkAction<Return, Arg, {rejectValue: string | ValidateProfileErrors[]}>;
+type ActionCreatorType<Return, Arg, RejectValue> = (
+    arg: Arg,
+) => AsyncThunkAction<
+    Return,
+    Arg,
+    { rejectValue: string | ValidateProfileErrors[] }
+>;
 
 export class TestAsyncThunk<Return, Arg, RejectValue> {
     dispatch: jest.Mocked<any>;
@@ -34,11 +39,10 @@ export class TestAsyncThunk<Return, Arg, RejectValue> {
 
     async callThunk(arg: Arg) {
         const action = this.actionCreator(arg);
-        const result = await action(
-            this.dispatch,
-            this.getState,
-            { api: this.api, navigate: this.navigate },
-        );
+        const result = await action(this.dispatch, this.getState, {
+            api: this.api,
+            navigate: this.navigate,
+        });
 
         return result;
     }
