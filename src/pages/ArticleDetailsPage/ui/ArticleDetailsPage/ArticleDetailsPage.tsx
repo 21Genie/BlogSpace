@@ -16,7 +16,8 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatures } from '@/shared/lib/features';
+import { getFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card/Card';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -29,7 +30,12 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
-    const isArticleRatingEnable = getFeatures('isArticleRatingEnabled');
+
+    const rating = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating articleId={id ?? ''} />,
+        off: () => <Card>{t('Скоро вернётся оценка статьи')}</Card>,
+    });
 
     if (!id) {
         return (
@@ -44,7 +50,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <Page className={classNames(cls.articleDetailsPage, [className])}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
-                {isArticleRatingEnable && <ArticleRating articleId={id} />}
+                {rating}
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={id} />
             </Page>
