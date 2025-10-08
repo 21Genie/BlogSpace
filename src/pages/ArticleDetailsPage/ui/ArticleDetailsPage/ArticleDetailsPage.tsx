@@ -16,7 +16,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatures, toggleFeatures } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card/Card';
 
 interface ArticleDetailsPageProps {

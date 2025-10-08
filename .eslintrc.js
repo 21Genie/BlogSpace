@@ -71,6 +71,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+        'react/no-unstable-nested-components': ['warn', { allowAsProps: true }],
         'dzen-plugin/path-checker': ['error', { alias: '@' }],
         'dzen-plugin/public-api-imports': ['error', { alias: '@' }],
         'dzen-plugin/layer-imports': [
