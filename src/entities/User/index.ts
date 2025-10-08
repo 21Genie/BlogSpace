@@ -8,3 +8,5 @@ export {
     isUserManager,
     getUserRoles,
 } from './model/selectors/getUserRoles/getUserRoles';
+export { getJsonSettings } from './model/selectors/getUserInited/getJsonSettings';
+export { saveJsonSettings } from './model/services/saveJsonSettings';

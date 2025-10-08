@@ -4,15 +4,15 @@ import {
     ThemContext,
     Theme,
 } from '@/shared/lib/theme/ThemeContext';
+import { useSelector } from 'react-redux';
+import { getJsonSettings } from '@/entities/User';
 
 type ThemeProviderProps = {
     children: ReactNode;
 };
 
-const defaultTheme =
-    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
-
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+    const { theme: defaultTheme = Theme.LIGHT } = useSelector(getJsonSettings);
     const [theme, setTheme] = useState(defaultTheme);
 
     const defaultProps = useMemo(
