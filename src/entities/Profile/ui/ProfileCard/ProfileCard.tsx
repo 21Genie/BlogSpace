@@ -85,7 +85,7 @@ export const ProfileCard = ({
                     />
                 </div>
             )}
-            <div className={cls.data}>
+            <form className={cls.data}>
                 <Input
                     value={data?.first}
                     placeholder={t('Ваше имя')}
@@ -93,6 +93,7 @@ export const ProfileCard = ({
                     readonly={readonly}
                     onChange={onChangeFirstname}
                     data-testid="ProfileCard.Firstname"
+                    name="firstname"
                 />
                 <Input
                     value={data?.lastname}
@@ -101,6 +102,7 @@ export const ProfileCard = ({
                     readonly={readonly}
                     onChange={onChangeLastname}
                     data-testid="ProfileCard.Lastname"
+                    name="lastname"
                 />
                 <Input
                     value={data?.age}
@@ -108,6 +110,7 @@ export const ProfileCard = ({
                     type="text"
                     readonly={readonly}
                     onChange={onChangeAge}
+                    name="age"
                 />
                 <Input
                     value={data?.city}
@@ -115,6 +118,7 @@ export const ProfileCard = ({
                     type="text"
                     readonly={readonly}
                     onChange={onChangeCity}
+                    name="city"
                 />
                 <Input
                     value={data?.username}
@@ -122,6 +126,7 @@ export const ProfileCard = ({
                     type="text"
                     readonly={readonly}
                     onChange={onChangeUsername}
+                    name="nickname"
                 />
                 <Input
                     value={data?.avatar}
@@ -129,6 +134,7 @@ export const ProfileCard = ({
                     type="text"
                     readonly={readonly}
                     onChange={onChangeAvatar}
+                    name="avatar"
                 />
                 <CurrencySelect
                     value={data?.currency}
@@ -140,7 +146,7 @@ export const ProfileCard = ({
                     onChange={onChangeCountry}
                     readonly={readonly}
                 />
-            </div>
+            </form>
         </div>
     );
 };

@@ -61,12 +61,14 @@ export const ArticleSortSelector = ({
                 options={sortFieldOptions}
                 value={sort}
                 onChange={onChangeSort}
+                name="sort"
             />
             <Select
                 label={t('По')}
                 options={orderOptions}
                 value={order}
                 onChange={onChangeOrder}
+                name="sort"
             />
         </div>
     );

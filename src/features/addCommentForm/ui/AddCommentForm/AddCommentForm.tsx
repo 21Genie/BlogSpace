@@ -56,6 +56,7 @@ const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
                     placeholder={t('Введите текст комментария')}
                     value={text}
                     onChange={onCommentTextChange}
+                    name="comment"
                 />
                 <Button onClick={onSendHandler}>{t('Отправить')}</Button>
             </div>

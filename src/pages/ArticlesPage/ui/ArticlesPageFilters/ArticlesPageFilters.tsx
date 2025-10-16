@@ -106,6 +106,7 @@ export const ArticlesPageFilters = ({
                     value={search}
                     placeholder={t('Поиск')}
                     onChange={onChangeSearch}
+                    name="search"
                 />
             </Card>
             <ArticleTypeTabs

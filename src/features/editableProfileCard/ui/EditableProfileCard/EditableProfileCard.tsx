@@ -14,12 +14,19 @@ import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/g
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { profileAction } from '../../model/slice/profileSlice';
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { profileAction, profileReducer } from '../../model/slice/profileSlice';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 interface EditableProfileCardProps {
     id: string;
 }
+
+const reducers: ReducersList = {
+    profile: profileReducer,
+};
 
 export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
     const { t } = useTranslation('profile');
@@ -104,8 +111,7 @@ export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
     );
 
     return (
-        <>
-            <EditableProfileCardHeader />
+        <DynamicModuleLoader reducers={reducers}>
             {validateErrors &&
                 validateErrors?.map((err) => (
                     <Text
@@ -129,6 +135,6 @@ export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
                 onChangeCurrency={onChangeCurrency}
                 onChangeCountry={onChangeCountry}
             />
-        </>
+        </DynamicModuleLoader>
     );
 };

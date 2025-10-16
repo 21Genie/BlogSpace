@@ -1,20 +1,14 @@
-import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useParams } from 'react-router-dom';
+
+import cls from './ProfilePage.module.scss';
 
 import {
     EditableProfileCard,
-    profileReducer,
+    EditableProfileCardHeader,
 } from '@/features/editableProfileCard';
-import { Page } from '@/widgets/Page';
 import { Text } from '@/shared/ui/Text/Text';
-
-const reducers: ReducersList = {
-    profile: profileReducer,
-};
+import { Page } from '@/widgets/Page';
 
 const ProfilePage = () => {
     const { t } = useTranslation('profile');
@@ -25,11 +19,12 @@ const ProfilePage = () => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <div className={cls.profileCard}>
             <Page data-testid="ProfilePage">
+                <EditableProfileCardHeader />
                 <EditableProfileCard id={id} />
             </Page>
-        </DynamicModuleLoader>
+        </div>
     );
 };
 

@@ -1,4 +1,4 @@
-import { ChangeEvent, useMemo } from 'react';
+import { ChangeEvent, SelectHTMLAttributes, useMemo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
@@ -7,7 +7,12 @@ export interface SelectOptions<T> {
     content: string;
 }
 
-interface SelectProps<T extends string> {
+type HTMLSelectProps = Omit<
+    SelectHTMLAttributes<HTMLSelectElement>,
+    'onChange'
+>;
+
+interface SelectProps<T extends string> extends HTMLSelectProps {
     className?: string;
     label?: string;
     options?: SelectOptions<T>[];
@@ -23,6 +28,7 @@ export const Select = <T extends string>({
     onChange,
     options,
     readonly,
+    ...otherProps
 }: SelectProps<T>) => {
     const optionsList = useMemo(
         () =>
@@ -50,6 +56,7 @@ export const Select = <T extends string>({
                 value={value}
                 onChange={onChangeHandler}
                 disabled={readonly}
+                {...otherProps}
             >
                 {optionsList}
             </select>

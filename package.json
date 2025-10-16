@@ -19,14 +19,6 @@
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
         "test:unit": "jest --config ./config/jest/jest.config.ts",
         "test:e2e": "npx cypress open",
-        "test:ui": "npx loki test",
-        "test:ui:update": "npx loki approve",
-        "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
-        "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
-        "test:ui:json": "node scripts/generate-visual-json-report.js",
-        "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
-        "storybook": "start-storybook -p 6009 -c ./config/storybook",
-        "storybook:build": "build-storybook -c ./config/storybook",
         "prepare": "husky",
         "postinstall": "rm -rf ./node_modules/.cache"
     },
@@ -133,20 +125,5 @@
         "react-dom": "^18.2.0",
         "react-i18next": "^11.18.6",
         "react-router-dom": "^6.2.1"
-    },
-    "loki": {
-        "configurations": {
-            "chrome.laptop": {
-                "target": "chrome.docker",
-                "width": 1366,
-                "height": 768,
-                "deviceScaleFactor": 1,
-                "mobile": false
-            },
-            "chrome.iphone7": {
-                "target": "chrome.docker",
-                "preset": "iPhone 7"
-            }
-        }
     }
 }
