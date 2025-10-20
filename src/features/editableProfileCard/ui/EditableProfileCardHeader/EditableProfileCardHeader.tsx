@@ -5,19 +5,19 @@ import { getUserAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Text } from '@/shared/ui/Text/Text';
-import { profileAction } from '../../model/slice/profileSlice';
-import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileAction } from '../../model/slice/profileSlice';
 import cls from './EditableProfileCardHeader.module.scss';
 
 export const EditableProfileCardHeader = () => {
     const { t } = useTranslation('profile');
+    const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
-    const canEdit = authData?.id === profileData?.id;
     const readonly = useSelector(getProfileReadonly);
-    const dispatch = useAppDispatch();
+    const canEdit = authData?.id === profileData?.id;
 
     const onEdit = useCallback(() => {
         dispatch(profileAction.setReadonly(false));

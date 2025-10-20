@@ -19,6 +19,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
     id: string;
@@ -112,6 +113,7 @@ export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
+            <EditableProfileCardHeader />
             {validateErrors &&
                 validateErrors?.map((err) => (
                     <Text

@@ -6,10 +6,11 @@
 .link {
     margin-left: 10px;
     opacity: 1;
+    color: var(--primary-color);
 }
 
 .icon {
-    fill: var(--inverted-primary-color);
+    fill: var(--primary-color);
 }
 
 .collapsed {

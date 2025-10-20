@@ -20,8 +20,8 @@ export default ({ config }: { config: Configuration }) => {
     if (config.module) {
         // @ts-ignore
         config.module.rules = config?.module?.rules?.map(
-            (rule: RuleSetRule) => {
-                if (/svg/.test(rule.test as string)) {
+            (rule: RuleSetRule | false | '' | 0 | '...' | null | undefined) => {
+                if (isRuleSetRule(rule) && /svg/.test(rule.test as string)) {
                     return { ...rule, exclude: /\.svg$/i };
                 }
                 return rule;
@@ -46,3 +46,6 @@ export default ({ config }: { config: Configuration }) => {
 
     return config;
 };
+function isRuleSetRule(rule: any): rule is RuleSetRule {
+    return rule && typeof rule === 'object' && 'test' in rule;
+}

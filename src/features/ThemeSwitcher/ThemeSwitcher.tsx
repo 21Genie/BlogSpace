@@ -9,6 +9,7 @@ import LightIcon from '@/shared/assets/icons/light.svg';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Theme } from '@/shared/lib/theme/ThemeContext';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
     className?: string;
@@ -18,7 +19,12 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     const { theme, toggleTheme } = useTheme();
     const dispatch = useAppDispatch();
 
-    const ThemeIcon = theme === Theme.DARK ? <DarkIcon /> : <LightIcon />;
+    const ThemeIcon =
+        theme === Theme.DARK ? (
+            <DarkIcon className={cls.darkTheme} />
+        ) : (
+            <LightIcon />
+        );
 
     const onToggleHandleClick = useCallback(() => {
         toggleTheme((newTheme: Theme) =>

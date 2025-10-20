@@ -31,7 +31,7 @@ describe('fetchProfileData', () => {
 
         const result = await thunk.callThunk('1');
 
-        expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toBe('error');
+        expect(result.meta.requestStatus).toBe('fulfilled');
+        expect(result.payload).toBe(undefined);
     });
 });

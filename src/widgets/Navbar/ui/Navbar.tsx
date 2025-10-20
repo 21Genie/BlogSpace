@@ -11,10 +11,10 @@ import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { getRouteArticleCreate } from '@/shared/const/router';
+import { Text } from '@/shared/ui/Text/Text';
 import { getUserAuthData } from '../../../entities/User';
 import cls from './Navbar.module.scss';
-import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string;
@@ -36,11 +36,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar, [className])}>
-                <Text
-                    className={cls.appName}
-                    title={t('App')}
-                    theme={TextTheme.INVERTED}
-                />
+                <Text className={cls.appName} title={t('App')} />
                 <AppLink
                     to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
