@@ -7,7 +7,7 @@ interface BuildBabelLoaderProps extends BuildOptions {
 
 export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => {
     const isProd = !isDev;
-    return ({
+    return {
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
         use: {
@@ -33,5 +33,5 @@ export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => {
                 ].filter(Boolean),
             },
         },
-    });
+    };
 };

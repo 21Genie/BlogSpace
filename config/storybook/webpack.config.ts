@@ -3,6 +3,10 @@ import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 
+function isRuleSetRule(rule: any): rule is RuleSetRule {
+    return rule && typeof rule === 'object' && 'test' in rule;
+}
+
 export default ({ config }: { config: Configuration }) => {
     const paths: BuildPaths = {
         build: '',
@@ -46,6 +50,3 @@ export default ({ config }: { config: Configuration }) => {
 
     return config;
 };
-function isRuleSetRule(rule: any): rule is RuleSetRule {
-    return rule && typeof rule === 'object' && 'test' in rule;
-}
