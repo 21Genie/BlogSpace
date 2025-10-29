@@ -1,27 +1,29 @@
+## 🖼 Скриншоты
+
+### Страница профиля
+
+![Скриншот приложения](./screenshots/profile-screenshot.png)
+
+### Страница со статьями
+
+![Скриншот приложения](./screenshots/articles-screenshot.png)
+
+### Страница статьи
+
+![Скриншот приложения](./screenshots/article-screenshot.png)
+
+![Скриншот приложения](./screenshots/article-photo-code-screenshot.png)
+
+![Скриншот приложения](./screenshots/rating-recomended-coments-screnshot.png)
+
+---
+
 ## Запус проекта
 
 ```
 npm install - устанавливаем зависимости
 npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта в dev режиме
 ```
-
----
-
-## Скрипты
-
--   `npm run start` - Запуск frontend проекта на webpack dev server
--   `npm run start:vite` - Запуск frontend проекта на vite
--   `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
--   `npm run start:dev:vite` - Запуск frontend проекта на vite + backend
--   `npm run start:dev:server` - Запуск backend сервера
--   `npm run build:prod` - Сборка в prod режиме
--   `npm run build:dev` - Сборка в dev режиме (не минимизирован)
--   `npm run lint:ts` - Проверка ts файлов линтером
--   `npm run lint:ts:fix` - Исправление ts файлов линтером
--   `npm run lint:scss` - Проверка scss файлов style линтером
--   `npm run lint:scss:fix` - Исправление scss файлов style линтером
--   `npm run test:unit` - Запуск unit тестов с jest
--   `npm run prepare` - прекоммит хуки
 
 ---
 
@@ -46,7 +48,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Тесты
 
-В проекте используются 4 вида тестов:
+В проекте используются 3 вида тестов:
 
 1. Обычные unit тесты на jest - `npm run test:unit`
 2. Тесты на компоненты с React testing library -`npm run test:unit`
@@ -141,3 +143,21 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 -   [notificationButton](/src/features/notificationButton)
 -   [ThemeSwitcher](/src/features/ThemeSwitcher)
 -   [UI](/src/features/ScrollSave)
+
+---
+
+## Скрипты
+
+-   `npm run start` - Запуск frontend проекта на webpack dev server
+-   `npm run start:vite` - Запуск frontend проекта на vite
+-   `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
+-   `npm run start:dev:vite` - Запуск frontend проекта на vite + backend
+-   `npm run start:dev:server` - Запуск backend сервера
+-   `npm run build:prod` - Сборка в prod режиме
+-   `npm run build:dev` - Сборка в dev режиме (не минимизирован)
+-   `npm run lint:ts` - Проверка ts файлов линтером
+-   `npm run lint:ts:fix` - Исправление ts файлов линтером
+-   `npm run lint:scss` - Проверка scss файлов style линтером
+-   `npm run lint:scss:fix` - Исправление scss файлов style линтером
+-   `npm run test:unit` - Запуск unit тестов с jest
+-   `npm run prepare` - прекоммит хуки

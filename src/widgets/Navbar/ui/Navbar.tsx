@@ -7,11 +7,8 @@ import { LoginModal } from '@/features/AuthByUsername';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
-import { getRouteArticleCreate } from '@/shared/const/router';
 import { Text } from '@/shared/ui/Text/Text';
 import { getUserAuthData } from '../../../entities/User';
 import cls from './Navbar.module.scss';
@@ -36,14 +33,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar, [className])}>
-                <Text className={cls.appName} title={t('App')} />
-                <AppLink
-                    to={getRouteArticleCreate()}
-                    theme={AppLinkTheme.SECONDARY}
-                    className={cls.createLink}
-                >
-                    {t('Создать статью')}
-                </AppLink>
+                <Text className={cls.appName} title={t('BlogSpace')} />
                 <div className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropdown />
