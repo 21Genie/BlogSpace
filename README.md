@@ -71,7 +71,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
    (например widgets нельзя использовать в features и entitites)
 3. public-api-imports - разрешает импорт из других модулей только из public api. Имеет auto fix
 
-##### Запуск линтеров
+### Запуск линтеров
 
 -   `npm run lint:ts` - Проверка ts файлов линтером
 -   `npm run lint:ts:fix` - Исправление ts файлов линтером
@@ -108,10 +108,9 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ---
 
-### Работа с данными
+## Работа с данными
 
 Взаимодействие с данными осуществляется с помощью redux toolkit.
-По возможности переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter
 
 Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
 
